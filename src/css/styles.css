@@ -2,7 +2,7 @@ body {
   font-family: 'Lato', Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #415066;
-  background-color: #F0FAFC;
+  background-color: #F1F3F0;
 }
 
 .container {
@@ -21,7 +21,7 @@ body {
 .progressbar {
   position: relative;
   width: 490px;
-  border: 1px solid #80C1E3;
+  border: 1px solid #8DB66A;
   margin-top: 5px;
   padding: 3px;
   background-color: #fff;
@@ -52,7 +52,7 @@ body {
 
 .button {
   margin-left: 2px;
-  border: 1px solid #80C1E3;
+  border: 1px solid #8DB66A;
   border-radius: 5px;
   text-align: center;
   padding: 10%;
@@ -139,7 +139,7 @@ body {
   height: 60px;
   display: none;
   color: white;
-  background-color: #2E4B73;
+  background-color: #315C15;
 }
 
 .sorter > .text > p {
@@ -153,13 +153,13 @@ body {
 
 .sorter > .left {
   grid-column: 1 / 2;
-  border: 1px solid #80C1E3;
+  border: 1px solid #8DB66A;
   border-radius: 5px;
 }
 
 .sorter > .right {
   grid-column: 3 / 4;
-  border: 1px solid #80C1E3;
+  border: 1px solid #8DB66A;
   border-radius: 5px;
 }
 
@@ -236,7 +236,7 @@ label:hover {
   width: 196px;
   grid-template-columns: repeat(2, 1fr);
   background-color: white;
-  border: 1px solid #80C1E3;
+  border: 1px solid #8DB66A;
   margin-right: 5px;
 }
 
@@ -251,11 +251,11 @@ label:hover {
 
 .result.spacer {
   height: 1px;
-  background-color: #2E4B73;
+  background-color: #315C15;
 }
 
 .result.head {
-  background-color: #2E4B73;
+  background-color: #315C15;
   color: #FFF;
   font-weight: bold;
 }
@@ -282,7 +282,7 @@ label:hover {
   width: 160px;
   padding: 3px 0em 0px 0em;
   grid-column: 2 / 3;
-  border-left: 1px solid #80C1E3;
+  border-left: 1px solid #8DB66A;
   text-align: center;
 }
 
@@ -296,7 +296,7 @@ label:hover {
 }
 
 a {
-  color: #2450CF;
+  color: #559c26;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
@@ -311,16 +311,16 @@ a:visited {
 }
 
 .restart-button:link, .restart-button:visited {
-  background-color: #AAE1F6;
-  color: #2E4B73;
+  background-color: #b1bca9;
+  color: #315C15;
   padding: 6px 10px;
   border-radius: 5px;
-  border: 1px solid #80C1E3;
+  border: 1px solid #8DB66A;
   display: inline-block;
 }
 
 a.restart-button:hover, a.restart-button:active{
-  color: #2E4B73;
+  color: #315C15;
   background-color: #F6E94B;
 }
 
@@ -330,11 +330,11 @@ b, strong {
 
 select {
   background-color: white;
-  border: 1px solid #80C1E3;
+  border: 1px solid #8DB66A;
   border-radius: 5px;
-  color: #2E4B73;
+  color: #315C15;
 }
 
 hr{
-  border: 1px solid #597AAA;
+  border: 1px solid #315c15;
 }
