@@ -212,7 +212,7 @@ label:hover {
   align-content: flex-start;
   width: 80%;
   margin: 2em auto;
-  background-color: #F0FAFC;
+  background-color: #F1F3F0;
 }
 
 @media all and (min-width: 600px) {
