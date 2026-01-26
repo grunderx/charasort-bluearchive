@@ -1066,6 +1066,13 @@ dataSet[dataSetVersion].characterData = [
       school: ["Trinity"]
     }
   },
+  {
+    name: "Komakaze Rabu",
+    img: "rabu.jpg",
+    opts: {
+      school: ["Trinity"],
+    }
+  },
   //--npc
 
   //Valkyrie
@@ -1306,14 +1313,6 @@ dataSet[dataSetVersion].characterData = [
   {
     name: "Plana",
     img: "plana.jpg",
-    opts: {
-      school: ["Other"],
-      NPC: true
-    }
-  },
-  {
-    name: "Komakaze Rabu",
-    img: "rabu.jpg",
     opts: {
       school: ["Other"],
       NPC: true
