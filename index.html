@@ -1,29 +1,36 @@
 <html>
 
 <head>
-  <link rel="shortcut icon" href="src/assets/daisuki.ico" type="image/x-icon">
-  <link rel="icon" href="src/assets/daisuki.ico" type="image/x-icon">
-  <meta charset="utf-8">
-  <meta name="og:site_name" content="Blue Archive Character Sorter">
-  <meta name="og:description" content="A simple website for sorting Blue Archive characters.">
-  <meta name="og:image" content="src/assets/og-image.jpg">
-  <title>AruCord BA Sorter</title>
+    <link rel="shortcut icon" href="src/assets/daisuki.ico" type="image/x-icon">
+    <link rel="icon" href="src/assets/daisuki.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="og:site_name" content="Blue Archive Character Sorter">
+    <meta name="og:description" content="A simple website for sorting Blue Archive characters.">
+    <meta name="og:image" content="src/assets/og-image.jpg">
+    <title>AruCord BA Sorter</title>
 
-  <link rel="stylesheet" type="text/css" href="src/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="src/css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 
-  <script src="src/js/data.js"></script>
-  <script src="src/js/data/2026-01-26.js"></script>
+    <script src="src/js/data.js"></script>
+    <script src="src/js/data/2026-01-26.js"></script>
 
-  <script src="src/js/html2canvas.min.js"></script>
-  <script src="src/js/lz-string.min.js"></script>
-  <script src="src/js/seedrandom.min.js"></script>
-  <script src="src/js/main.js"></script>
+    <script src="src/js/html2canvas.min.js"></script>
+    <script src="src/js/lz-string.min.js"></script>
+    <script src="src/js/seedrandom.min.js"></script>
+    <script src="src/js/main.js"></script>
 </head>
 
 <body>
 <div class="container">
+
+    <div class="app-title">
+        <h1 class="title">AruCord Blue Archive Character Sorter</h1>
+        <p class="subtitle">Blue Archive character sorter for AruCord</p>
+    </div>
 
     <div class="progress">
         <span class="progressbattle"></span>
@@ -35,7 +42,7 @@
     <div class="sorter">
         <img src="src/assets/Miyo1.png" class="left sort image">
 
-        <div class="starting start button">Blue Archive Character Sorter<br><br>Click to Start!<br><br>MAKE MIYO YOUR FIRST, BITCH</div>
+        <div class="starting start button">Click to Start!<br><br><span class="shill-text">"MAKE ME YOUR FIRST, OKAY?"  <br>— MIYO</span></div>
         <div class="starting load button">Load <span></span></div>
 
         <div class="loading button"><div></div><span>Loading...</span></div>
@@ -60,11 +67,13 @@
     <div class="results"></div>
 
     <div class="info">
-        <a href="https://github.com/grunderx/charasort-bluearchive" target="_blank">Source Code</a> | <a href="https://github.com/execfera/charasort/" target="_blank">Based on this project</a> | <a class="clearsave">Clear Save Data</a>
-        
-        <br><br>
+        <p>Sorter for <a href="https://en.wikipedia.org/wiki/Blue_Archive" target="_blank">Blue Archive</a> characters.</p>
+        <p>Originally hosted due to the <a href="https://ba-sort.netlify.app" target="_blank">usual site</a> being outdated for quite a while at the time.</p>
+        <p>Modified a bit to suit AruCord's *cough cough* I mean GrunderX's tastes.</p>
 
-        <p>Sorter for <a href="https://en.wikipedia.org/wiki/Blue_Archive" target="_blank">Blue Archive</a> characters. Pick your sources, and hit the Start button.</p>
+        <br>
+
+        <p>Pick your sources, and hit the Start button.</p>
         <p><strong>Certain options have details that you can hover to read.</strong></p>
         <p>Click on the character you like better from the two, or tie them if you like them equally or don't know them.</p>
         <p>Depending on how many sources you pick, you'll get up to 700+ picks, so set aside a good few cups of tea for this.</p>
@@ -82,16 +91,16 @@
         
         <table class="changes-table">
             <tbody>
-                <tr>
-                    <td colspan="2"><b>Latest Changes</b></td>
+                <tr class="changes-table head">
+                    <td colspan="2"><b>Latest Changes (26 January 2026)</b></td>
                 </tr>
                 <tr>
-                    <td>New characters</td>
-                    <td>-</td>
+                    <td class="changes-table left">New characters</td>
+                    <td class="changes-table right">-</td>
                 </tr>
                 <tr>
-                    <td>No longer NPCs</td>
-                    <td>
+                    <td class="changes-table left">No longer NPCs</td>
+                    <td class="changes-table right">
                         <ul>
                             <li>Shiroko Terror (fix)</li>
                             <li>Kakehashi Subaru (fix)</li>
@@ -109,7 +118,10 @@
             </tbody>
         </table>
         
-		<hr style="width:61%">
+        <br>
+        <br>
+
+        <a href="https://github.com/grunderx/charasort-bluearchive" target="_blank">Source Code</a> | <a href="https://github.com/execfera/charasort/" target="_blank">Based on this project</a> | <a class="clearsave">Clear Save Data</a>
         <p>Originally inspired by <a href="http://mainyan.sakura.ne.jp/thsort.html" target="_blank">this site</a> | <a href="https://bluearchive.nexon.com/home" target="_blank">Blue Archive</a> by <a href="https://en.wikipedia.org/wiki/Nexon" target="_blank">Nexon</a>
     </div>
 </div>

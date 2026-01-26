@@ -26,23 +26,23 @@ dataSet[dataSetVersion].options = [
   {
     name: "Show Global-released only",
     key: "notyetGlobal",
-    tooltip: "Check this to disable characters that haven't yet made an appearance on the global server.",
+    tooltip: "Check this to disable characters that haven't yet made an appearance on Global.",
     checked: false
   },
   {
-    name: "Disable NPC Characters",
+    name: "Disable NPCs",
     key: "NPC",
-    tooltip: "Check this to disable NPC characters.",
+    tooltip: "Check this to disable non-playable characters.",
     checked: false
   },
   {
-    name: "Disable Collab Characters",
+    name: "Disable collab characters",
     key: "collab",
     tooltip: "Check this to disable collab characters (Hatsune Miku, Misaka Mikoto, etc.)",
     checked: false
   },
   {
-    name: "Remove Duplicate Characters",
+    name: "Remove duplicate characters",
     key: "dupes",
     tooltip: "Check this to remove Duplicate characters (ex. Shun and Small Shun)."
   }

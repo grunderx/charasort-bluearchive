@@ -1,5 +1,5 @@
 body {
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #415066;
   background-color: #F1F3F0;
@@ -342,10 +342,24 @@ hr{
 .changes-table {
   margin-left: auto;
   margin-right: auto;
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
   border: 0.5px solid #315c15;
   border-collapse: collapse; 
+}
+
+.changes-table.head {
+  background-color: #315C15;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.changes-table.left {
+  width: 40%
+}
+
+.changes-table.right {
+  width: 60%
 }
 
 .changes-table th, 
@@ -354,4 +368,19 @@ hr{
   text-align: center;
   vertical-align: middle;
   border: 0.5px solid #315c15;
+}
+
+.app-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.app-title > .title {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+}
+
+.shill-text {
+  font-family: 'Syne Mono', Arial, Helvetica, sans-serif;
 }
