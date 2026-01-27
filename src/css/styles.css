@@ -339,7 +339,7 @@ hr{
   border: 1px solid #315c15;
 }
 
-.changes-table {
+.changes-table, .controls-table {
   margin-left: auto;
   margin-right: auto;
   max-width: 400px;
@@ -348,22 +348,27 @@ hr{
   border-collapse: collapse; 
 }
 
-.changes-table.head {
+.changes-table .head,
+.controls-table .head {
   background-color: #315C15;
   color: #FFF;
   font-weight: bold;
 }
 
-.changes-table.left {
+.changes-table .left,
+.controls-table .left {
   width: 40%
 }
 
-.changes-table.right {
+.changes-table .right,
+.controls-table .right {
   width: 60%
 }
 
 .changes-table th, 
-.changes-table td {
+.changes-table td,
+.controls-table th,
+.controls-table td {
   padding: 2px;
   text-align: center;
   vertical-align: middle;

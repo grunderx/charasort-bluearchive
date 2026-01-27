@@ -53,6 +53,48 @@ let totalBattles    = 0;
 let sorterURL       = window.location.host + window.location.pathname;
 let storedSaveType  = localStorage.getItem(`${sorterURL}_saveType`);
 
+/** Key Configs */
+let actions = {
+  'saveProgress': () => saveProgress('Progress'),
+  'chooseLeft': () => pick('left'),
+  'chooseRight': () => pick('right'),
+  'chooseTie': () => pick('tie'),
+  'undo': () => undo(),
+  'saveLastResult': () => saveProgress('Last Result'),
+  'generateResultImages': () => generateImage(),
+  'generateResultTextList': () => generateTextList(),
+  'start': () => start(),
+  'loadProgress': () => loadProgress()
+};
+
+let preSortingKeyConfig = [
+  { action: 'start', keys: ['s', '1', 'Enter'], desc: 'Start' },
+  { action: 'loadProgress', keys: ['l', '2'], desc: 'Load Progress' }
+];
+let inSortingKeyConfig = [
+  { action: 'saveProgress', keys: ['s', '3'], desc: 'Save Progress' },
+  { action: 'chooseLeft', keys: ['h', 'ArrowLeft'], desc: 'Choose Left' },
+  { action: 'chooseRight', keys: ['l', 'ArrowRight'], desc: 'Choose Right' },
+  { action: 'chooseTie', keys: ['k', '1', 'ArrowUp'], desc: 'Tie' },
+  { action: 'undo', keys: ['j', '2', 'ArrowDown'], desc: 'Undo' }
+];
+let postSortingKeyConfig = [
+  { action: 'saveLastResult', keys: ['k', '1'], desc: 'Save Last Result' },
+  { action: 'generateResultImages', keys: ['j', '2'], desc: 'Generate Result with Images' },
+  { action: 'generateResultTextList', keys: ['s', '3'], desc: 'Generate Result as Text' }
+];
+
+function addToTableSection(sectionId, leftText, rightText) {
+  let section = document.getElementById(sectionId);
+  let newRow = section.insertRow(-1);
+  let cell1 = newRow.insertCell(0);
+  let cell2 = newRow.insertCell(1);
+  cell1.textContent = leftText;
+  cell1.classList.add('left');
+  cell2.textContent = rightText;
+  cell2.classList.add('right');
+}
+
 /** Initialize script. */
 function init() {
 
@@ -75,33 +117,35 @@ function init() {
 
   /** Define keyboard controls (up/down/left/right vimlike k/j/h/l). */
   document.addEventListener('keypress', (ev) => {
+    let match = '';
+
     /** If sorting is in progress. */
     if (timestamp && !timeTaken && !loading && choices.length === battleNo - 1) {
-      switch(ev.key) {
-        case 's': case '3':                   saveProgress('Progress'); break;
-        case 'h': case 'ArrowLeft':           pick('left'); break;
-        case 'l': case 'ArrowRight':          pick('right'); break;
-        case 'k': case '1': case 'ArrowUp':   pick('tie'); break;
-        case 'j': case '2': case 'ArrowDown': undo(); break;
-        default: break;
-      }
+      match = inSortingKeyConfig.find(def => def.keys.includes(ev.key));
     }
     /** If sorting has ended. */
     else if (timeTaken && choices.length === battleNo - 1) {
-      switch(ev.key) {
-        case 'k': case '1': saveProgress('Last Result'); break;
-        case 'j': case '2': generateImage(); break;
-        case 's': case '3': generateTextList(); break;
-        default: break;
-      }
-    } else { // If sorting hasn't started yet.
-      switch(ev.key) {
-        case '1': case 's': case 'Enter': start(); break;
-        case '2': case 'l':               loadProgress(); break;
-        default: break;
-      }
+      match = postSortingKeyConfig.find(def => def.keys.includes(ev.key));
+    /** If sorting hasn't started. */
+    } else {
+      match = preSortingKeyConfig.find(def => def.keys.includes(ev.key));
+    }
+
+    if (match && actions[match.action]) {
+      actions[match.action]();
     }
   });
+
+  /** Display keyboard controls */
+  inSortingKeyConfig.forEach(cfg => {
+    addToTableSection('in-sorting-controls-section', cfg.desc, cfg.keys.join(' / ').toUpperCase());
+  });
+  preSortingKeyConfig.forEach(cfg => {
+    addToTableSection('pre-sorting-controls-section', cfg.desc, cfg.keys.join(' / ').toUpperCase());
+  });
+  // postSortingKeyConfig.forEach(cfg => {
+  //   addToTableSection('post-sorting-controls-section', cfg.desc, cfg.keys.join(' / '));
+  // });
 
   document.querySelector('.image.selector').insertAdjacentElement('beforeend', document.createElement('select'));
 
