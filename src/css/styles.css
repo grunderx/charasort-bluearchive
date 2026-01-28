@@ -1,3 +1,7 @@
+[hidden] {
+  display: none !important;
+}
+
 body {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -381,11 +385,134 @@ hr{
 }
 
 .app-title > .title {
-  font-size: 20px;
+  font-size: 1.3em;
   font-weight: bold;
   font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
 }
 
 .shill-text {
   font-family: 'Syne Mono', Arial, Helvetica, sans-serif;
+}
+
+/* Mobile styles */
+.sticky-nav {
+  position: fixed;
+  bottom: 0;
+  
+  left: 10px;
+  right: 10px;
+  width: auto;
+  
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+  
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.nav-btn {
+  height: 60px;
+  background-color: white;
+  border: 1px solid #8DB66A;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  
+  color: #315C15;
+  font-weight: bold;
+  font-size: 14px;
+  
+  cursor: pointer;
+  pointer-events: auto;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn.top-row {
+  grid-column: span 3;
+}
+
+.nav-btn.bot-row {
+  grid-column: span 2;
+}
+
+.nav-btn:hover {
+  background-color: #F6E94B;
+}
+
+.nav-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  background-color: #F6E94B;
+}
+
+/* --- REVERSED STYLE FOR TOP BUTTONS --- */
+.nav-btn.top-row {
+  background-color: #315C15; /* Dark Green Background */
+  color: white;              /* White Icon */
+  border: 1px solid #315C15; /* Match border to background */
+}
+
+/* Hover Effect: Switch to the Yellow accent color */
+.nav-btn.top-row:hover {
+  background-color: #F6E94B; /* Yellow */
+  color: #315C15;            /* switch icon back to Green */
+  border-color: #8DB66A;
+}
+
+/* Active/Click Effect */
+.nav-btn.top-row:active {
+  background-color: #e5d840; /* Slightly darker yellow */
+  transform: translateY(2px);
+}
+
+.nav-btn .icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.top-row .icon {
+  width: 28px;
+  height: 28px;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .container, 
+  .progress, 
+  .progressbar, 
+  .progresstext, 
+  .sorter, 
+  .options, 
+  .image.selector, 
+  .time.taken, 
+  .changes-table, 
+  .controls-table {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .sorter {
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-gap: 2px;
+    width: 95% !important;
+    margin: 0 auto;
+  }
+
+  .sorter > .image {
+    width: 100%;
+    height: auto;
+  }
 }

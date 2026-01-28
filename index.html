@@ -7,6 +7,7 @@
     <meta name="og:site_name" content="Blue Archive Character Sorter">
     <meta name="og:description" content="A simple website for sorting Blue Archive characters.">
     <meta name="og:image" content="src/assets/og-image.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AruCord BA Sorter</title>
 
     <link rel="stylesheet" type="text/css" href="src/css/reset.css">
@@ -66,6 +67,10 @@
     <div class="time taken"></div>
     <div class="results"></div>
 
+    <div class="controls-toggle mobile-only" hidden>
+        <button id="mobile-controls-toggle-btn" type="button">Display Mobile Controls</button>
+    </div>
+
     <div class="info">
         <p>Sorter for <a href="https://en.wikipedia.org/wiki/Blue_Archive" target="_blank">Blue Archive</a> characters.</p>
         <p>Originally hosted due to the <a href="https://ba-sort.netlify.app" target="_blank">usual site</a> being outdated for quite a while at the time.</p>
@@ -80,7 +85,7 @@
 
         <br>
 		
-        <table class="controls-table">
+        <table class="controls-table desktop-only">
             <thead>
                 <tr class="head">
                     <td colspan="2">Keyboard Controls</td>
@@ -145,7 +150,37 @@
         <br>
 
         <a href="https://github.com/grunderx/charasort-bluearchive" target="_blank">Source Code</a> | <a href="https://github.com/execfera/charasort/" target="_blank">Based on this project</a> | <a class="clearsave">Clear Save Data</a>
-        <p>Originally inspired by <a href="http://mainyan.sakura.ne.jp/thsort.html" target="_blank">this site</a> | <a href="https://bluearchive.nexon.com/home" target="_blank">Blue Archive</a> by <a href="https://en.wikipedia.org/wiki/Nexon" target="_blank">Nexon</a>
+        <p>Originally inspired by <a href="http://mainyan.sakura.ne.jp/thsort.html" target="_blank">this site</a> | <a href="https://bluearchive.nexon.com/home" target="_blank">Blue Archive</a> by <a href="https://en.wikipedia.org/wiki/Nexon" target="_blank">Nexon</a></p>
+        
+        <div id="mobile-controls" hidden>
+            <div class="sticky-nav">
+                <button class="nav-btn top-row mobile-left-btn">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="nav-btn top-row mobile-right-btn">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="nav-btn bot-row mobile-undo-btn">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+                    </svg>
+                </button>
+                <button class="nav-btn bot-row mobile-tie-btn">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                    </svg>
+                </button>
+                <button class="nav-btn bot-row mobile-save-btn">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8" />
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 </body>

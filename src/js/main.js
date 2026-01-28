@@ -84,30 +84,33 @@ let postSortingKeyConfig = [
   { action: 'generateResultTextList', keys: ['s', '3'], desc: 'Generate Result as Text' }
 ];
 
-function addToTableSection(sectionId, leftText, rightText) {
-  let section = document.getElementById(sectionId);
-  let newRow = section.insertRow(-1);
-  let cell1 = newRow.insertCell(0);
-  let cell2 = newRow.insertCell(1);
-  cell1.textContent = leftText;
-  cell1.classList.add('left');
-  cell2.textContent = rightText;
-  cell2.classList.add('right');
-}
+/** Client Device */
+let isMobile = false;
+let showMobileControls = false;
 
 /** Initialize script. */
 function init() {
+  /** Determine client device. */
+  let agent = navigator.userAgent.toLowerCase();
+  if (agent.includes('android') || agent.includes('iphone')) {
+    isMobile = true;
+  }
 
   /** Define button behavior. */
   document.querySelector('.starting.start.button').addEventListener('click', start);
   document.querySelector('.starting.load.button').addEventListener('click', loadProgress);
 
   document.querySelector('.left.sort.image').addEventListener('click', () => pick('left'));
+  document.querySelector('.mobile-left-btn').addEventListener('click', () => pick('left'));
   document.querySelector('.right.sort.image').addEventListener('click', () => pick('right'));
+  document.querySelector('.mobile-right-btn').addEventListener('click', () => pick('right'));
   
   document.querySelector('.sorting.tie.button').addEventListener('click', () => pick('tie'));
+  document.querySelector('.mobile-tie-btn').addEventListener('click', () => pick('tie'));
   document.querySelector('.sorting.undo.button').addEventListener('click', undo);
+  document.querySelector('.mobile-undo-btn').addEventListener('click', undo);
   document.querySelector('.sorting.save.button').addEventListener('click', () => saveProgress('Progress'));
+  document.querySelector('.mobile-save-btn').addEventListener('click', () => saveProgress('Progress'));
   
   document.querySelector('.finished.save.button').addEventListener('click', () => saveProgress('Last Result'));
   document.querySelector('.finished.getimg.button').addEventListener('click', generateImage);
@@ -115,7 +118,22 @@ function init() {
 
   document.querySelector('.clearsave').addEventListener('click', clearProgress);
 
-  /** Define keyboard controls (up/down/left/right vimlike k/j/h/l). */
+  document.querySelector('#mobile-controls-toggle-btn').addEventListener('click', toggleMobileControls);
+
+  /** Hide/show mobile and desktop only elements */
+  if (isMobile) {
+    let mobileOnlyElements = document.querySelectorAll('.mobile-only');
+    mobileOnlyElements.forEach(element => {
+      element.hidden = false;
+    });
+    
+    letDesktopOnlyElements = document.querySelectorAll('.desktop-only');
+    letDesktopOnlyElements.forEach(element => {
+      element.hidden = true;
+    })
+  }
+
+  /** Assign keyboard controls */
   document.addEventListener('keypress', (ev) => {
     let match = '';
 
@@ -510,9 +528,12 @@ function progressBar(indicator, percentage) {
 /**
  * Shows the result of the sorter.
  * 
- * @param {number} [imageNum=3] Number of images to display. Defaults to 3.
+ * @param {number} [imageNum=5] Number of images to display. Defaults to 5.
  */
 function result(imageNum = 5) {
+  // Hide mobile controls
+  setMobileControlsDisplay(false);
+
   document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
   document.querySelector('.image.selector').style.display = 'block';
   document.querySelector('.time.taken').style.display = 'block';
@@ -521,6 +542,7 @@ function result(imageNum = 5) {
   document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'none');
   document.querySelector('.options').style.display = 'none';
   document.querySelector('.info').style.display = 'none';
+  document.querySelector('.controls-toggle').style.display = 'none';
 
   const header = '<div class="result head"><div class="left">#</div><div class="right">Name</div></div>';
   const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <br><br> <a class="restart-button" href="${location.protocol}//${sorterURL}">Do another sorter</a>`;
@@ -874,6 +896,36 @@ function reduceTextWidth(text, font, width) {
       reducedText = reducedText.slice(0, -1);
     }
     return reducedText + '..';
+  }
+}
+
+function addToTableSection(sectionId, leftText, rightText) {
+  let section = document.getElementById(sectionId);
+  let newRow = section.insertRow(-1);
+  let cell1 = newRow.insertCell(0);
+  let cell2 = newRow.insertCell(1);
+  cell1.textContent = leftText;
+  cell1.classList.add('left');
+  cell2.textContent = rightText;
+  cell2.classList.add('right');
+}
+
+function setMobileControlsDisplay(show) {
+  let toggleBtn = document.getElementById('mobile-controls-toggle-btn');
+  let mobileControls = document.getElementById('mobile-controls');
+  let btnText = show ? 'Hide Mobile Controls' : 'Show Mobile Controls';
+  toggleBtn.textContent = btnText;
+  mobileControls.hidden = !show;
+  showMobileControls = show;
+}
+
+function toggleMobileControls() {
+  /** Show controls */
+  if (!showMobileControls) {
+    setMobileControlsDisplay(true);
+  /** Hide controls */
+  } else {
+    setMobileControlsDisplay(false);
   }
 }
 
