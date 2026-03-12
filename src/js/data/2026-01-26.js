@@ -1109,14 +1109,14 @@ dataSet[dataSetVersion].characterData = [
 
   //Highlander
   {
-    name: "Tacihbana Hikari",
+    name: "Tachibana Hikari",
     img: "hikari.jpg",
     opts: {
       school: ["Highlander"]
     }
   },
   {
-    name: "Tacihbana Nozomi",
+    name: "Tachibana Nozomi",
     img: "nozomi.jpg",
     opts: {
       school: ["Highlander"]
