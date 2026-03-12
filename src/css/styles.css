@@ -450,23 +450,21 @@ hr{
   background-color: #F6E94B;
 }
 
-/* --- REVERSED STYLE FOR TOP BUTTONS --- */
 .nav-btn.top-row {
-  background-color: #315C15; /* Dark Green Background */
-  color: white;              /* White Icon */
-  border: 1px solid #315C15; /* Match border to background */
+  background-color: #315C15;
+  color: white;
+  border: 1px solid #315C15;
 }
 
-/* Hover Effect: Switch to the Yellow accent color */
 .nav-btn.top-row:hover {
-  background-color: #F6E94B; /* Yellow */
-  color: #315C15;            /* switch icon back to Green */
+  background-color: #F6E94B;
+  color: #315C15;
   border-color: #8DB66A;
 }
 
 /* Active/Click Effect */
 .nav-btn.top-row:active {
-  background-color: #e5d840; /* Slightly darker yellow */
+  background-color: #e5d840;
   transform: translateY(2px);
 }
 
@@ -489,8 +487,6 @@ hr{
   
   .container, 
   .progress, 
-  .progressbar, 
-  .progresstext, 
   .sorter, 
   .options, 
   .image.selector, 
@@ -504,9 +500,20 @@ hr{
     padding-right: 10px;
   }
 
+  .progressbar {
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 3px !important;
+  }
+
+  .progresstext {
+    width: 100% !important;
+    left: 0;
+  }
+
   .sorter {
-    grid-template-columns: 1fr 1.5fr 1fr;
-    grid-gap: 2px;
+    grid-template-columns: 1.1fr 1fr 1.1fr; 
+    grid-gap: 4px;
     width: 95% !important;
     margin: 0 auto;
   }
@@ -514,5 +521,23 @@ hr{
   .sorter > .image {
     width: 100%;
     height: auto;
+  }
+
+  .sorter > .text {
+    width: 100%;
+    height: auto; 
+    min-height: 60px;
+  }
+
+  .sorter > .text > p {
+    font-size: 0.7em;
+  }
+
+  .button {
+    padding: 5%;
+    font-size: 0.8em;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
   }
 }
