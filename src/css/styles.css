@@ -62,11 +62,15 @@ body {
   /* margin-left: 2px; */
   border: 1px solid #8DB66A;
   border-radius: 5px;
-  /* text-align: center; */
   padding: 10px;
   /* grid-column: 2 / 3; */
   cursor: pointer;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 /* #start-btn {
@@ -84,7 +88,6 @@ body {
 
 .sorting.button, .finished.button {
   grid-row: span 2;
-  display: block;
 }
 
 .loading.button {
@@ -145,13 +148,17 @@ body {
 .sorter > .text {
   width: 160px;
   height: 60px;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   color: white;
   background-color: #315C15;
 }
 
 .sorter > .text > p {
-  margin: 0.7em 5px 0px;
+  /* margin: 0.7em 5px 0px; */
   width: calc(100%-10px);
   text-align: center;
   font-size: 0.8em;
