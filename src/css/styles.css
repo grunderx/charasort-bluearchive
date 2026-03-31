@@ -18,13 +18,13 @@ body {
 
 .progress {
   margin-bottom: 1em;
-  width: 500px;
+  width: 600px;
   display: none;
 }
 
 .progressbar {
   position: relative;
-  width: 490px;
+  width: 590px;
   border: 1px solid #8DB66A;
   margin-top: 5px;
   padding: 3px;
@@ -34,7 +34,7 @@ body {
 
 .progresstext {
   position: absolute;
-  width: 492px;
+  width: 592px;
   margin: 4px 0px;
   text-align: center;
   font-size: 0.7em;
@@ -49,9 +49,9 @@ body {
 .sorter {
   margin: 0px auto;
   display: grid;
-  grid-template-columns: 120px 1fr 120px;
-  grid-gap: 5px;
-  width: 420px;
+  grid-template-columns: 160px 1fr 160px;
+  grid-gap: 16px;
+  width: 600px;
 }
 
 .button {
@@ -59,7 +59,7 @@ body {
   border: 1px solid #8DB66A;
   border-radius: 5px;
   text-align: center;
-  padding: 10%;
+  padding: 10px;
   grid-column: 2 / 3;
   cursor: pointer;
   background-color: white;
@@ -126,8 +126,8 @@ body {
 }
 
 .sorter > .image {
-  width: 120px;
-  height: 180px;
+  width: 160px;
+  height: 240px;
   margin: auto;
   grid-row: 1 / 7;
   cursor: pointer;
@@ -139,7 +139,7 @@ body {
 }
 
 .sorter > .text {
-  width: 120px;
+  width: 160px;
   height: 60px;
   display: none;
   color: white;
@@ -173,7 +173,7 @@ body {
   text-align: left;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  width: 450px;
+  width: 600px;
 }
 
 .options > div {
@@ -196,7 +196,7 @@ label:hover {
 
 .image.selector {
   margin-top: 0.5em;
-  width: 500px;
+  width: 600px;
   display: none;
   text-align: center;
   font-size: 0.75em;
@@ -204,7 +204,7 @@ label:hover {
 
 .time.taken {
   margin-top: 0.5em;
-  width: 500px;
+  width: 600px;
   display: none;
   text-align: center;
   font-size: 0.75em;
