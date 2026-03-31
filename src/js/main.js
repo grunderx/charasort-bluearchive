@@ -545,11 +545,13 @@ function result(imageNum = 5) {
   document.querySelectorAll('.finished.button').forEach(el => el.classList.remove('hidden'));
   document.querySelector('#result-img-count-selector').classList.remove('hidden');
   document.querySelector('.time.taken').classList.remove('hidden');
+  document.querySelector('#results-section').classList.remove('hidden');
+  document.querySelector('#results').classList.remove('hidden');
   
   document.querySelectorAll('.sorting.button').forEach(el => el.classList.add('hidden'));
   document.querySelectorAll('.sort.text').forEach(el => el.classList.add('hidden'));
-  document.querySelector('.options').classList.add('hidden');
-  document.querySelector('.info').classList.add('hidden');
+  document.querySelector('#options-section').classList.add('hidden');
+  document.querySelector('#info-section').classList.add('hidden');
   document.querySelector('.controls-toggle').classList.add('hidden');
 
   const header = '<div class="result head"><div class="left">#</div><div class="right">Name</div></div>';

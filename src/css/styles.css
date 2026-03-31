@@ -10,7 +10,7 @@ body {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #415066;
-  background-color: #F1F3F0;
+  background-color: #D6DED0;
 }
 
 .container {
@@ -179,7 +179,7 @@ body {
 }
 
 .options {
-  margin: 1em auto;
+  /* margin: 1em auto; */
   display: grid;
   text-align: left;
   grid-template-columns: repeat(3, 1fr);
@@ -206,7 +206,6 @@ label:hover {
 }
 
 .image.selector {
-  margin-top: 0.5em;
   width: 600px;
   display: block;
   text-align: center;
@@ -227,7 +226,7 @@ label:hover {
   align-content: flex-start;
   width: 80%;
   margin: 2em auto;
-  background-color: #F1F3F0;
+  background-color: #EEF1EB;
 }
 
 @media all and (min-width: 600px) {
@@ -302,12 +301,13 @@ label:hover {
 }
 
 .info {
-  margin: 2em auto 3em;
+  margin-left: auto;
+  margin-right: auto;
   display: block;
   text-align: center;
-  font-size: 0.6875em;
-  width: 80%;
+  font-size: 0.8em;
   line-height: 1.2em;
+  width: 600px;
 }
 
 a {
@@ -424,6 +424,13 @@ hr{
 
 .checkbox-label {
   font-size: 0.8em;
+}
+
+.section-container {
+  background-color: #F1F3F0;
+  border-radius: 5px;
+  padding: 24px;
+  margin-bottom: 16px;
 }
 
 /* Mobile styles */
