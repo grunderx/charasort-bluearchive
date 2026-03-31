@@ -168,13 +168,21 @@ function init() {
   document.querySelector('#result-img-count-selector').insertAdjacentElement('beforeend', document.createElement('select'));
 
   /** Initialize image quantity selector for results. */
+  let imgQuantity = [];
+
   for (let i = 0; i <= 10; i++) {
-    const select = document.createElement('option');
-    select.value = i;
-    select.text = i;
-    if (i === 5) { select.selected = 'selected'; }
-    document.querySelector('#result-img-count-selector > select').insertAdjacentElement('beforeend', select);
+    imgQuantity.push(i)
   }
+
+  imgQuantity.push(25, 50, 100, 999999);
+
+  imgQuantity.forEach((qty, idx) => {
+    const select = document.createElement('option');
+    select.value = qty;
+    select.text = qty != 999999 ? qty : "All";
+    if (qty === 5) { select.selected = 'selected'; }
+    document.querySelector('#result-img-count-selector > select').insertAdjacentElement('beforeend', select);
+  });
 
   document.querySelector('#result-img-count-selector > select').addEventListener('input', (e) => {
     const imageNum = e.target.options[e.target.selectedIndex].value;
