@@ -73,10 +73,10 @@ let preSortingKeyConfig = [
 ];
 let inSortingKeyConfig = [
   { action: 'saveProgress', keys: ['s', '3'], desc: 'Save Progress' },
-  { action: 'chooseLeft', keys: ['h', 'ArrowLeft'], desc: 'Choose Left' },
-  { action: 'chooseRight', keys: ['l', 'ArrowRight'], desc: 'Choose Right' },
-  { action: 'chooseTie', keys: ['k', '1', 'ArrowUp'], desc: 'Tie' },
-  { action: 'undo', keys: ['j', '2', 'ArrowDown'], desc: 'Undo' }
+  { action: 'chooseLeft', keys: ['h'], desc: 'Choose Left' },
+  { action: 'chooseRight', keys: ['l'], desc: 'Choose Right' },
+  { action: 'chooseTie', keys: ['k', '1'], desc: 'Tie' },
+  { action: 'undo', keys: ['j', '2'], desc: 'Undo' }
 ];
 let postSortingKeyConfig = [
   { action: 'saveLastResult', keys: ['k', '1'], desc: 'Save Last Result' },
