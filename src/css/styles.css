@@ -401,6 +401,20 @@ hr{
   cursor: pointer;
 }
 
+.checkbox-wrapper-wide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  grid-column: span 3;
+  width: 100%;
+}
+
+.checkbox-label {
+  font-size: 0.8em;
+}
+
 /* Mobile styles */
 .sticky-nav {
   position: fixed;
