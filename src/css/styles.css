@@ -307,7 +307,7 @@ label:hover {
   text-align: center;
   font-size: 0.8em;
   line-height: 1.2em;
-  width: 600px;
+  max-width: 100%;
 }
 
 a {
@@ -523,20 +523,32 @@ hr{
   body {
     font-size: 15px;
   }
-  
-  .container, 
-  .progress, 
-  .sorter, 
-  .options, 
-  .image.selector, 
-  .time.taken, 
-  .changes-table, 
+
+  .section-container {
+    padding: 10px;
+    margin-left: 6px;
+    margin-right: 6px;
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .progress,
+  .sorter,
+  .options,
+  .image.selector,
+  .time.taken,
+  .changes-table,
   .controls-table {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box;
-    padding-left: 10px;
-    padding-right: 10px;
   }
 
   .progressbar {
@@ -551,7 +563,7 @@ hr{
   }
 
   .sorter {
-    grid-template-columns: 1.1fr 1fr 1.1fr; 
+    grid-template-columns: 1.1fr 1fr 1.1fr;
     grid-gap: 4px;
     width: 95% !important;
     margin: 0 auto;
@@ -564,7 +576,7 @@ hr{
 
   .sorter > .text {
     width: 100%;
-    height: auto; 
+    height: auto;
     min-height: 60px;
   }
 
