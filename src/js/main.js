@@ -165,7 +165,7 @@ function init() {
   //   addToTableSection('post-sorting-controls-section', cfg.desc, cfg.keys.join(' / '));
   // });
 
-  document.querySelector('.image.selector').insertAdjacentElement('beforeend', document.createElement('select'));
+  document.querySelector('#result-img-count-selector').insertAdjacentElement('beforeend', document.createElement('select'));
 
   /** Initialize image quantity selector for results. */
   for (let i = 0; i <= 10; i++) {
@@ -173,10 +173,10 @@ function init() {
     select.value = i;
     select.text = i;
     if (i === 5) { select.selected = 'selected'; }
-    document.querySelector('.image.selector > select').insertAdjacentElement('beforeend', select);
+    document.querySelector('#result-img-count-selector > select').insertAdjacentElement('beforeend', select);
   }
 
-  document.querySelector('.image.selector > select').addEventListener('input', (e) => {
+  document.querySelector('#result-img-count-selector > select').addEventListener('input', (e) => {
     const imageNum = e.target.options[e.target.selectedIndex].value;
     result(Number(imageNum));
   });
@@ -535,7 +535,7 @@ function result(imageNum = 5) {
   setMobileControlsDisplay(false);
 
   document.querySelectorAll('.finished.button').forEach(el => el.classList.remove('hidden'));
-  document.querySelector('.image.selector').classList.remove('hidden');
+  document.querySelector('#result-img-count-selector').classList.remove('hidden');
   document.querySelector('.time.taken').classList.remove('hidden');
   
   document.querySelectorAll('.sorting.button').forEach(el => el.classList.add('hidden'));
