@@ -394,6 +394,13 @@ hr{
   font-family: 'Syne Mono', Arial, Helvetica, sans-serif;
 }
 
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
 /* Mobile styles */
 .sticky-nav {
   position: fixed;
