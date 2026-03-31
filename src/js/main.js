@@ -97,26 +97,26 @@ function init() {
   }
 
   /** Define button behavior. */
-  document.querySelector('.starting.start.button').addEventListener('click', start);
-  document.querySelector('.starting.load.button').addEventListener('click', loadProgress);
+  document.querySelector('#start-btn').addEventListener('click', start);
+  document.querySelector('#load-btn').addEventListener('click', loadProgress);
 
-  document.querySelector('.left.sort.image').addEventListener('click', () => pick('left'));
-  document.querySelector('.mobile-left-btn').addEventListener('click', () => pick('left'));
-  document.querySelector('.right.sort.image').addEventListener('click', () => pick('right'));
-  document.querySelector('.mobile-right-btn').addEventListener('click', () => pick('right'));
+  document.querySelector('#left-img').addEventListener('click', () => pick('left'));
+  document.querySelector('#mobile-left-btn').addEventListener('click', () => pick('left'));
+  document.querySelector('#right-img').addEventListener('click', () => pick('right'));
+  document.querySelector('#mobile-right-btn').addEventListener('click', () => pick('right'));
   
-  document.querySelector('.sorting.tie.button').addEventListener('click', () => pick('tie'));
-  document.querySelector('.mobile-tie-btn').addEventListener('click', () => pick('tie'));
-  document.querySelector('.sorting.undo.button').addEventListener('click', undo);
-  document.querySelector('.mobile-undo-btn').addEventListener('click', undo);
-  document.querySelector('.sorting.save.button').addEventListener('click', () => saveProgress('Progress'));
-  document.querySelector('.mobile-save-btn').addEventListener('click', () => saveProgress('Progress'));
+  document.querySelector('#tie-btn').addEventListener('click', () => pick('tie'));
+  document.querySelector('#mobile-tie-btn').addEventListener('click', () => pick('tie'));
+  document.querySelector('#undo-btn').addEventListener('click', undo);
+  document.querySelector('#mobile-undo-btn').addEventListener('click', undo);
+  document.querySelector('#save-btn').addEventListener('click', () => saveProgress('Progress'));
+  document.querySelector('#mobile-save-btn').addEventListener('click', () => saveProgress('Progress'));
   
-  document.querySelector('.finished.save.button').addEventListener('click', () => saveProgress('Last Result'));
-  document.querySelector('.finished.getimg.button').addEventListener('click', generateImage);
-  document.querySelector('.finished.list.button').addEventListener('click', generateTextList);
+  document.querySelector('#result-save-btn').addEventListener('click', () => saveProgress('Last Result'));
+  document.querySelector('#result-gen-img-btn').addEventListener('click', generateImage);
+  document.querySelector('#result-gen-text-btn').addEventListener('click', generateTextList);
 
-  document.querySelector('.clearsave').addEventListener('click', clearProgress);
+  document.querySelector('#clear-save-btn').addEventListener('click', clearProgress);
 
   document.querySelector('#mobile-controls-toggle-btn').addEventListener('click', toggleMobileControls);
 
@@ -351,13 +351,13 @@ function display() {
 
   progressBar(`Battle No. ${battleNo}`, percent);
 
-  document.querySelector('.left.sort.image').src = leftChar.img;
-  document.querySelector('.right.sort.image').src = rightChar.img;
+  document.querySelector('#left-img').src = leftChar.img;
+  document.querySelector('#right-img').src = rightChar.img;
 
   
 
-  document.querySelector('.left.sort.text').innerHTML = charNameDisp(leftChar.name);
-  document.querySelector('.right.sort.text').innerHTML = charNameDisp(rightChar.name);
+  document.querySelector('#left-text').innerHTML = charNameDisp(leftChar.name);
+  document.querySelector('#right-text').innerHTML = charNameDisp(rightChar.name);
 
   /** Autopick if choice has been given. */
   if (choices.length !== battleNo - 1) {
