@@ -2,6 +2,10 @@
   display: none !important;
 }
 
+.hidden {
+  display: none !important;
+}
+
 body {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -19,7 +23,7 @@ body {
 .progress {
   margin-bottom: 1em;
   width: 600px;
-  display: none;
+  display: block;
 }
 
 .progressbar {
@@ -55,37 +59,37 @@ body {
 }
 
 .button {
-  margin-left: 2px;
+  /* margin-left: 2px; */
   border: 1px solid #8DB66A;
   border-radius: 5px;
-  text-align: center;
+  /* text-align: center; */
   padding: 10px;
-  grid-column: 2 / 3;
+  /* grid-column: 2 / 3; */
   cursor: pointer;
   background-color: white;
 }
 
-.starting.start.button {
+/* #start-btn {
   grid-row: span 6;
-}
+} */
 
 .button:hover{
   background-color: #F6E94B;
 }
 
-.starting.load.button {
+/* #load-btn {
   grid-row: span 3;
   display: none;
-}
+} */
 
 .sorting.button, .finished.button {
   grid-row: span 2;
-  display: none;
+  display: block;
 }
 
 .loading.button {
   grid-row: span 6;
-  display: none;
+  display: block;
 }
 
 .loading.button > div {
@@ -141,7 +145,7 @@ body {
 .sorter > .text {
   width: 160px;
   height: 60px;
-  display: none;
+  display: block;
   color: white;
   background-color: #315C15;
 }
@@ -197,7 +201,7 @@ label:hover {
 .image.selector {
   margin-top: 0.5em;
   width: 600px;
-  display: none;
+  display: block;
   text-align: center;
   font-size: 0.75em;
 }
@@ -205,7 +209,7 @@ label:hover {
 .time.taken {
   margin-top: 0.5em;
   width: 600px;
-  display: none;
+  display: block;
   text-align: center;
   font-size: 0.75em;
 }

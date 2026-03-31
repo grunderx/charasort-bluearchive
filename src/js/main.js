@@ -186,7 +186,7 @@ function init() {
     document.querySelector('.starting.load.button > span').insertAdjacentText('beforeend', storedSaveType);
     document.querySelectorAll('.starting.button').forEach(el => {
       el.style['grid-row'] = 'span 3';
-      el.style.display = 'block';
+      el.classList.remove('hidden');
     });
   }
 
@@ -321,16 +321,16 @@ function start() {
 
   /** Disable all checkboxes and hide/show appropriate parts while we preload the images. */
   document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.disabled = true);
-  document.querySelectorAll('.starting.button').forEach(el => el.style.display = 'none');
-  document.querySelector('.loading.button').style.display = 'block';
-  document.querySelector('.progress').style.display = 'block';
+  document.querySelectorAll('.starting.button').forEach(el => el.classList.add('hidden'));
+  document.querySelector('.loading.button').classList.remove('hidden');
+  document.querySelector('.progress').classList.remove('hidden');
   loading = true;
 
   preloadImages().then(() => {
     loading = false;
-    document.querySelector('.loading.button').style.display = 'none';
-    document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'block');
-    document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'block');
+    document.querySelector('.loading.button').classList.add('hidden');
+    document.querySelectorAll('.sorting.button').forEach(el => el.classList.remove('hidden'));
+    document.querySelectorAll('.sort.text').forEach(el => el.classList.remove('hidden'));
     display();
   });
 }
@@ -534,15 +534,15 @@ function result(imageNum = 5) {
   // Hide mobile controls
   setMobileControlsDisplay(false);
 
-  document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
-  document.querySelector('.image.selector').style.display = 'block';
-  document.querySelector('.time.taken').style.display = 'block';
+  document.querySelectorAll('.finished.button').forEach(el => el.classList.remove('hidden'));
+  document.querySelector('.image.selector').classList.remove('hidden');
+  document.querySelector('.time.taken').classList.remove('hidden');
   
-  document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'none');
-  document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'none');
-  document.querySelector('.options').style.display = 'none';
-  document.querySelector('.info').style.display = 'none';
-  document.querySelector('.controls-toggle').style.display = 'none';
+  document.querySelectorAll('.sorting.button').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.sort.text').forEach(el => el.classList.add('hidden'));
+  document.querySelector('.options').classList.add('hidden');
+  document.querySelector('.info').classList.add('hidden');
+  document.querySelector('.controls-toggle').classList.add('hidden');
 
   const header = '<div class="result head"><div class="left">#</div><div class="right">Name</div></div>';
   const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <br><br> <a class="restart-button" href="${location.protocol}//${sorterURL}">Do another sorter</a>`;
@@ -650,7 +650,7 @@ function clearProgress() {
   localStorage.removeItem(`${sorterURL}_saveType`);
 
   document.querySelectorAll('.starting.start.button').forEach(el => el.style['grid-row'] = 'span 6');
-  document.querySelectorAll('.starting.load.button').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.starting.load.button').forEach(el => el.classList.add('hidden'));
 }
 
 function generateImage() {
