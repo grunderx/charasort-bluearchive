@@ -62,7 +62,7 @@ body {
   width: 100%;
 }
 
-.button {
+.sorter-control {
   /* margin-left: 2px; */
   border: 1px solid #8DB66A;
   border-radius: 5px;
@@ -81,7 +81,7 @@ body {
   grid-row: span 6;
 } */
 
-.button:hover{
+.sorter-control:hover{
   background-color: #F6E94B;
 }
 
@@ -90,16 +90,16 @@ body {
   display: none;
 } */
 
-.sorting.button, .finished.button {
+.sorting.sorter-control, .finished.sorter-control {
   grid-row: span 2;
 }
 
-.loading.button {
+.loading.sorter-control {
   grid-row: span 6;
   display: block;
 }
 
-.loading.button > div {
+.loading.sorter-control > div {
   width: 25px;
   height: 25px;
   margin: 50px auto;
@@ -112,7 +112,7 @@ body {
 
 /* Animation taken from: http://tobiasahlin.com/spinkit/ */
 
-.loading.button > span {
+.loading.sorter-control > span {
   margin: auto auto 20%;
   font-size: 0.7em;
 }
@@ -329,20 +329,6 @@ a:visited {
   color: #9E42D1;
 }
 
-.restart-button:link, .restart-button:visited {
-  background-color: #b1bca9;
-  color: #315C15;
-  padding: 6px 10px;
-  border-radius: 5px;
-  border: 1px solid #8DB66A;
-  display: inline-block;
-}
-
-a.restart-button:hover, a.restart-button:active{
-  color: #315C15;
-  background-color: #F6E94B;
-}
-
 b, strong {
   font-weight: bold;
 }
@@ -433,6 +419,41 @@ hr{
 
 .checkbox-label {
   font-size: 0.8em;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 0.85em;
+  font-family: inherit;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #315C15;
+  background-color: white;
+  border: 1px solid #8DB66A;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #F6E94B;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  color: #FFF;
+  background-color: #315C15;
+  border-color: #315C15;
+}
+
+.btn-primary:hover {
+  background-color: #F6E94B;
+  color: #315C15;
+  border-color: #8DB66A;
 }
 
 .section-container {
@@ -595,7 +616,7 @@ hr{
     font-size: 0.7em;
   }
 
-  .button {
+  .sorter-control {
     padding: 5%;
     font-size: 0.8em;
     overflow-wrap: break-word;

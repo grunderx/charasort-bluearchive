@@ -191,8 +191,8 @@ function init() {
 
   /** Show load button if save data exists. */
   if (storedSaveType) {
-    document.querySelector('.starting.load.button > span').insertAdjacentText('beforeend', storedSaveType);
-    document.querySelectorAll('.starting.button').forEach(el => {
+    document.querySelector('.starting.load.sorter-control > span').insertAdjacentText('beforeend', storedSaveType);
+    document.querySelectorAll('.starting.sorter-control').forEach(el => {
       el.style['grid-row'] = 'span 3';
       el.classList.remove('hidden');
     });
@@ -329,15 +329,15 @@ function start() {
 
   /** Disable all checkboxes and hide/show appropriate parts while we preload the images. */
   document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.disabled = true);
-  document.querySelectorAll('.starting.button').forEach(el => el.classList.add('hidden'));
-  document.querySelector('.loading.button').classList.remove('hidden');
+  document.querySelectorAll('.starting.sorter-control').forEach(el => el.classList.add('hidden'));
+  document.querySelector('.loading.sorter-control').classList.remove('hidden');
   document.querySelector('.progress').classList.remove('hidden');
   loading = true;
 
   preloadImages().then(() => {
     loading = false;
-    document.querySelector('.loading.button').classList.add('hidden');
-    document.querySelectorAll('.sorting.button').forEach(el => el.classList.remove('hidden'));
+    document.querySelector('.loading.sorter-control').classList.add('hidden');
+    document.querySelectorAll('.sorting.sorter-control').forEach(el => el.classList.remove('hidden'));
     document.querySelectorAll('.sort.text').forEach(el => el.classList.remove('hidden'));
     display();
   });
@@ -542,20 +542,20 @@ function result(imageNum = 5) {
   // Hide mobile controls
   setMobileControlsDisplay(false);
 
-  document.querySelectorAll('.finished.button').forEach(el => el.classList.remove('hidden'));
+  document.querySelectorAll('.finished.sorter-control').forEach(el => el.classList.remove('hidden'));
   document.querySelector('#result-img-count-selector').classList.remove('hidden');
   document.querySelector('.time.taken').classList.remove('hidden');
   document.querySelector('#results-section').classList.remove('hidden');
   document.querySelector('#results').classList.remove('hidden');
   
-  document.querySelectorAll('.sorting.button').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.sorting.sorter-control').forEach(el => el.classList.add('hidden'));
   document.querySelectorAll('.sort.text').forEach(el => el.classList.add('hidden'));
   document.querySelector('#options-section').classList.add('hidden');
   document.querySelector('#info-section').classList.add('hidden');
   document.querySelector('.controls-toggle').classList.add('hidden');
 
   const header = '<div class="result head"><div class="left">#</div><div class="right">Name</div></div>';
-  const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <br><br> <a class="restart-button" href="${location.protocol}//${sorterURL}">Do another sorter</a>`;
+  const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <br><br> <button class="btn" onclick="location.href='${location.protocol}//${sorterURL}'">Do another sorter</button>`;
   const imgRes = (char, num) => {
     const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
     const charTooltip = char.name !== charName ? char.name : '';
@@ -659,8 +659,8 @@ function clearProgress() {
   localStorage.removeItem(`${sorterURL}_saveData`);
   localStorage.removeItem(`${sorterURL}_saveType`);
 
-  document.querySelectorAll('.starting.start.button').forEach(el => el.style['grid-row'] = 'span 6');
-  document.querySelectorAll('.starting.load.button').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.starting.start.sorter-control').forEach(el => el.style['grid-row'] = 'span 6');
+  document.querySelectorAll('.starting.load.sorter-control').forEach(el => el.classList.add('hidden'));
 }
 
 function generateImage() {
@@ -670,7 +670,7 @@ function generateImage() {
 
   html2canvas(document.querySelector('.results')).then(canvas => {
     const dataURL = canvas.toDataURL();
-    const imgButton = document.querySelector('.finished.getimg.button');
+    const imgButton = document.querySelector('.finished.getimg.sorter-control');
     const resetButton = document.createElement('a');
 
     imgButton.removeEventListener('click', generateImage);
