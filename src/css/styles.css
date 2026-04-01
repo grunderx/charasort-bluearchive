@@ -438,7 +438,7 @@ input[type='checkbox'] {
 }
 
 .checkbox-wrapper:hover {
-  background-color: var(--color-gold);
+  background-color: var(--color-yellow);
 }
 
 .checkbox-wrapper-wide {
