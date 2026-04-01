@@ -97,26 +97,26 @@ function init() {
   }
 
   /** Define button behavior. */
-  document.querySelector('.starting.start.button').addEventListener('click', start);
-  document.querySelector('.starting.load.button').addEventListener('click', loadProgress);
+  document.querySelector('#start-btn').addEventListener('click', start);
+  document.querySelector('#load-btn').addEventListener('click', loadProgress);
 
-  document.querySelector('.left.sort.image').addEventListener('click', () => pick('left'));
-  document.querySelector('.mobile-left-btn').addEventListener('click', () => pick('left'));
-  document.querySelector('.right.sort.image').addEventListener('click', () => pick('right'));
-  document.querySelector('.mobile-right-btn').addEventListener('click', () => pick('right'));
+  document.querySelector('#left-img').addEventListener('click', () => pick('left'));
+  document.querySelector('#mobile-left-btn').addEventListener('click', () => pick('left'));
+  document.querySelector('#right-img').addEventListener('click', () => pick('right'));
+  document.querySelector('#mobile-right-btn').addEventListener('click', () => pick('right'));
   
-  document.querySelector('.sorting.tie.button').addEventListener('click', () => pick('tie'));
-  document.querySelector('.mobile-tie-btn').addEventListener('click', () => pick('tie'));
-  document.querySelector('.sorting.undo.button').addEventListener('click', undo);
-  document.querySelector('.mobile-undo-btn').addEventListener('click', undo);
-  document.querySelector('.sorting.save.button').addEventListener('click', () => saveProgress('Progress'));
-  document.querySelector('.mobile-save-btn').addEventListener('click', () => saveProgress('Progress'));
+  document.querySelector('#tie-btn').addEventListener('click', () => pick('tie'));
+  document.querySelector('#mobile-tie-btn').addEventListener('click', () => pick('tie'));
+  document.querySelector('#undo-btn').addEventListener('click', undo);
+  document.querySelector('#mobile-undo-btn').addEventListener('click', undo);
+  document.querySelector('#save-btn').addEventListener('click', () => saveProgress('Progress'));
+  document.querySelector('#mobile-save-btn').addEventListener('click', () => saveProgress('Progress'));
   
-  document.querySelector('.finished.save.button').addEventListener('click', () => saveProgress('Last Result'));
-  document.querySelector('.finished.getimg.button').addEventListener('click', generateImage);
-  document.querySelector('.finished.list.button').addEventListener('click', generateTextList);
+  document.querySelector('#result-save-btn').addEventListener('click', () => saveProgress('Last Result'));
+  document.querySelector('#result-gen-img-btn').addEventListener('click', generateImage);
+  document.querySelector('#result-gen-text-btn').addEventListener('click', generateTextList);
 
-  document.querySelector('.clearsave').addEventListener('click', clearProgress);
+  document.querySelector('#clear-save-btn').addEventListener('click', clearProgress);
 
   document.querySelector('#mobile-controls-toggle-btn').addEventListener('click', toggleMobileControls);
 
@@ -165,28 +165,36 @@ function init() {
   //   addToTableSection('post-sorting-controls-section', cfg.desc, cfg.keys.join(' / '));
   // });
 
-  document.querySelector('.image.selector').insertAdjacentElement('beforeend', document.createElement('select'));
+  document.querySelector('#result-img-count-selector').insertAdjacentElement('beforeend', document.createElement('select'));
 
   /** Initialize image quantity selector for results. */
+  let imgQuantity = [];
+
   for (let i = 0; i <= 10; i++) {
-    const select = document.createElement('option');
-    select.value = i;
-    select.text = i;
-    if (i === 5) { select.selected = 'selected'; }
-    document.querySelector('.image.selector > select').insertAdjacentElement('beforeend', select);
+    imgQuantity.push(i)
   }
 
-  document.querySelector('.image.selector > select').addEventListener('input', (e) => {
+  imgQuantity.push(25, 50, 100, 999999);
+
+  imgQuantity.forEach((qty, idx) => {
+    const select = document.createElement('option');
+    select.value = qty;
+    select.text = qty != 999999 ? qty : "All";
+    if (qty === 5) { select.selected = 'selected'; }
+    document.querySelector('#result-img-count-selector > select').insertAdjacentElement('beforeend', select);
+  });
+
+  document.querySelector('#result-img-count-selector > select').addEventListener('input', (e) => {
     const imageNum = e.target.options[e.target.selectedIndex].value;
     result(Number(imageNum));
   });
 
   /** Show load button if save data exists. */
   if (storedSaveType) {
-    document.querySelector('.starting.load.button > span').insertAdjacentText('beforeend', storedSaveType);
-    document.querySelectorAll('.starting.button').forEach(el => {
+    document.querySelector('.starting.load.sorter-control > span').insertAdjacentText('beforeend', storedSaveType);
+    document.querySelectorAll('.starting.sorter-control').forEach(el => {
       el.style['grid-row'] = 'span 3';
-      el.style.display = 'block';
+      el.classList.remove('hidden');
     });
   }
 
@@ -321,16 +329,16 @@ function start() {
 
   /** Disable all checkboxes and hide/show appropriate parts while we preload the images. */
   document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.disabled = true);
-  document.querySelectorAll('.starting.button').forEach(el => el.style.display = 'none');
-  document.querySelector('.loading.button').style.display = 'block';
-  document.querySelector('.progress').style.display = 'block';
+  document.querySelectorAll('.starting.sorter-control').forEach(el => el.classList.add('hidden'));
+  document.querySelector('.loading.sorter-control').classList.remove('hidden');
+  document.querySelector('.progress').classList.remove('hidden');
   loading = true;
 
   preloadImages().then(() => {
     loading = false;
-    document.querySelector('.loading.button').style.display = 'none';
-    document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'block');
-    document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'block');
+    document.querySelector('.loading.sorter-control').classList.add('hidden');
+    document.querySelectorAll('.sorting.sorter-control').forEach(el => el.classList.remove('hidden'));
+    document.querySelectorAll('.sort.text').forEach(el => el.classList.remove('hidden'));
     display();
   });
 }
@@ -351,13 +359,13 @@ function display() {
 
   progressBar(`Battle No. ${battleNo}`, percent);
 
-  document.querySelector('.left.sort.image').src = leftChar.img;
-  document.querySelector('.right.sort.image').src = rightChar.img;
+  document.querySelector('#left-img').src = leftChar.img;
+  document.querySelector('#right-img').src = rightChar.img;
 
   
 
-  document.querySelector('.left.sort.text').innerHTML = charNameDisp(leftChar.name);
-  document.querySelector('.right.sort.text').innerHTML = charNameDisp(rightChar.name);
+  document.querySelector('#left-text').innerHTML = charNameDisp(leftChar.name);
+  document.querySelector('#right-text').innerHTML = charNameDisp(rightChar.name);
 
   /** Autopick if choice has been given. */
   if (choices.length !== battleNo - 1) {
@@ -534,27 +542,28 @@ function result(imageNum = 5) {
   // Hide mobile controls
   setMobileControlsDisplay(false);
 
-  document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
-  document.querySelector('.image.selector').style.display = 'block';
-  document.querySelector('.time.taken').style.display = 'block';
+  document.querySelectorAll('.finished.sorter-control').forEach(el => el.classList.remove('hidden'));
+  document.querySelector('#result-img-count-selector').classList.remove('hidden');
+  document.querySelector('.time.taken').classList.remove('hidden');
+  document.querySelector('#results-section').classList.remove('hidden');
+  document.querySelector('#results').classList.remove('hidden');
   
-  document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'none');
-  document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'none');
-  document.querySelector('.options').style.display = 'none';
-  document.querySelector('.info').style.display = 'none';
-  document.querySelector('.controls-toggle').style.display = 'none';
+  document.querySelectorAll('.sorting.sorter-control').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.sort.text').forEach(el => el.classList.add('hidden'));
+  document.querySelector('#options-section').classList.add('hidden');
+  document.querySelector('#info-section').classList.add('hidden');
+  document.querySelector('.controls-toggle').classList.add('hidden');
 
-  const header = '<div class="result head"><div class="left">#</div><div class="right">Name</div></div>';
-  const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <br><br> <a class="restart-button" href="${location.protocol}//${sorterURL}">Do another sorter</a>`;
+  const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <br><br> <button class="btn" onclick="location.href='${location.protocol}//${sorterURL}'">Do another sorter</button>`;
   const imgRes = (char, num) => {
-    const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
+    const charName = reduceTextWidth(char.name, 'Arial 12px', 130);
     const charTooltip = char.name !== charName ? char.name : '';
-    return `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${char.img}"><div><span title="${charTooltip}">${charName}</span></div></div></div>`;
+    return `<div class="result image"><div class="rank">${num}</div><img src="${char.img}"><div class="name" title="${charTooltip}">${charName}</div></div>`;
   }
   const res = (char, num) => {
-    const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
+    const charName = reduceTextWidth(char.name, 'Arial 12px', 200);
     const charTooltip = char.name !== charName ? char.name : '';
-    return `<div class="result"><div class="left">${num}</div><div class="right"><span title="${charTooltip}">${charName}</span></div></div>`;
+    return `<div class="result"><div class="rank">${num}</div><div class="name" title="${charTooltip}">${charName}</div></div>`;
   }
 
   let rankNum       = 1;
@@ -565,16 +574,19 @@ function result(imageNum = 5) {
   const resultTable = document.querySelector('.results');
   const timeElem = document.querySelector('.time.taken');
 
-  resultTable.innerHTML = header;
+  resultTable.innerHTML = '<div class="results-images"></div><div class="results-list"></div>';
   timeElem.innerHTML = timeStr;
+
+  const imagesContainer = resultTable.querySelector('.results-images');
+  const listContainer = resultTable.querySelector('.results-list');
 
   characterDataToSort.forEach((val, idx) => {
     const characterIndex = finalSortedIndexes[idx];
     const character = characterDataToSort[characterIndex];
     if (imageDisplay-- > 0) {
-      resultTable.insertAdjacentHTML('beforeend', imgRes(character, rankNum));
+      imagesContainer.insertAdjacentHTML('beforeend', imgRes(character, rankNum));
     } else {
-      resultTable.insertAdjacentHTML('beforeend', res(character, rankNum));
+      listContainer.insertAdjacentHTML('beforeend', res(character, rankNum));
     }
     finalCharacters.push({ rank: rankNum, name: character.name });
 
@@ -649,18 +661,76 @@ function clearProgress() {
   localStorage.removeItem(`${sorterURL}_saveData`);
   localStorage.removeItem(`${sorterURL}_saveType`);
 
-  document.querySelectorAll('.starting.start.button').forEach(el => el.style['grid-row'] = 'span 6');
-  document.querySelectorAll('.starting.load.button').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.starting.start.sorter-control').forEach(el => el.style['grid-row'] = 'span 6');
+  document.querySelectorAll('.starting.load.sorter-control').forEach(el => el.classList.add('hidden'));
 }
 
 function generateImage() {
   const timeFinished = timestamp + timeTaken;
   const tzoffset = (new Date()).getTimezoneOffset() * 60000;
-  const filename = 'sort-' + (new Date(timeFinished - tzoffset)).toISOString().slice(0, -5).replace('T', '(') + ').png';
+  const filename = 'sort-' + (new Date(timeFinished - tzoffset)).toISOString().slice(0, -5).replace('T', '(') + ').jpg';
 
-  html2canvas(document.querySelector('.results')).then(canvas => {
-    const dataURL = canvas.toDataURL();
-    const imgButton = document.querySelector('.finished.getimg.button');
+  // Build off-screen container
+  const container = document.createElement('div');
+  container.style.cssText = 'position:absolute;left:-9999px;width:1200px;padding:24px;background:#F1F3F0;font-family:Inter,Arial,sans-serif;font-size:16px;color:#3A4A34;';
+
+  // Header
+  const header = document.createElement('div');
+  header.style.cssText = 'text-align:center;margin-bottom:16px;';
+  header.innerHTML = `<div style="font-size:1.3em;font-weight:bold;font-family:Space Grotesk,Arial,sans-serif;">Blue Archive Character Sorter</div>
+    <div style="font-size:0.75em;margin-top:4px;">Time spent: ${msToReadableTime(timeTaken)}</div>`;
+  container.appendChild(header);
+
+  // Top: image cards
+  const imageSection = document.createElement('div');
+  imageSection.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px;';
+
+  // Bottom: text list
+  const listSection = document.createElement('div');
+  listSection.style.cssText = 'column-count:auto;column-width:200px;column-gap:12px;';
+
+  // Populate from sorted data
+  const finalSortedIndexes = sortedIndexList[0].slice(0);
+  const imageCount = Number(document.querySelector('#result-img-count-selector > select').value) || 5;
+  let rankNum = 1;
+  let tiedRankNum = 1;
+
+  characterDataToSort.forEach((val, idx) => {
+    const characterIndex = finalSortedIndexes[idx];
+    const character = characterDataToSort[characterIndex];
+
+    if (idx < imageCount) {
+      const card = document.createElement('div');
+      card.style.cssText = 'width:100px;border:1px solid #8DB66A;border-radius:8px;overflow:hidden;position:relative;background:white;';
+      card.innerHTML = `<div style="position:absolute;top:4px;left:4px;background:#315C15;color:#FFF;font-size:0.6em;font-weight:bold;width:18px;height:18px;line-height:18px;border-radius:50%;text-align:center;">${rankNum}</div>
+        <img src="${character.img}" style="width:100%;display:block;">
+        <div style="padding:3px 2px;font-size:0.6em;font-weight:bold;text-align:center;background:rgba(49,92,21,0.8);color:#FFF;position:absolute;bottom:0;left:0;right:0;">${character.name}</div>`;
+      imageSection.appendChild(card);
+    }
+
+    const row = document.createElement('div');
+    row.style.cssText = `display:flex;align-items:center;padding:2px 6px;font-size:0.65em;border-bottom:1px solid #8DB66A;break-inside:avoid;${idx % 2 === 0 ? 'background:#F1F3F0;' : ''}`;
+    row.innerHTML = `<span style="width:30px;font-weight:bold;text-align:right;margin-right:8px;flex-shrink:0;">${rankNum}</span><span>${character.name}</span>`;
+    listSection.appendChild(row);
+
+    if (idx < characterDataToSort.length - 1) {
+      if (tiedDataList[characterIndex] === finalSortedIndexes[idx + 1]) {
+        tiedRankNum++;
+      } else {
+        rankNum += tiedRankNum;
+        tiedRankNum = 1;
+      }
+    }
+  });
+
+  container.appendChild(imageSection);
+  container.appendChild(listSection);
+  document.body.appendChild(container);
+
+  html2canvas(container).then(canvas => {
+    document.body.removeChild(container);
+    const dataURL = canvas.toDataURL('image/jpeg', 0.6);
+    const imgButton = document.querySelector('.finished.getimg.sorter-control');
     const resetButton = document.createElement('a');
 
     imgButton.removeEventListener('click', generateImage);
@@ -715,10 +785,10 @@ function setLatestDataset() {
 function populateOptions() {
   const optList = document.querySelector('.options');
   const optInsert = (name, id, tooltip, checked = true, disabled = false) => {
-    return `<div><label title="${tooltip?tooltip:name}"><input id="cb-${id}" type="checkbox" ${checked?'checked':''} ${disabled?'disabled':''}> ${name}</label></div>`;
+    return `<label class="checkbox-wrapper" title="${tooltip?tooltip:name}"><input id="cb-${id}" type="checkbox" ${checked?'checked':''} ${disabled?'disabled':''}> <span class=checkbox-label>${name}</span></label>`;
   };
   const optInsertLarge = (name, id, tooltip, checked = true) => {
-    return `<div class="large option"><label title="${tooltip?tooltip:name}"><input id="cbgroup-${id}" type="checkbox" ${checked?'checked':''}> ${name}</label></div>`;
+    return `<label class="checkbox-wrapper-wide" title="${tooltip?tooltip:name}"><input id="cbgroup-${id}" type="checkbox" ${checked?'checked':''}> <span class=checkbox-label>${name}</span></label>`;
   };
 
   /** Clear out any previous options. */

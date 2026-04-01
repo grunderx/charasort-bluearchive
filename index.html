@@ -5,7 +5,7 @@
     <link rel="icon" href="src/assets/miyo.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="og:site_name" content="Blue Archive Character Sorter">
-    <meta name="og:description" content="A simple website for sorting Blue Archive characters. Find out who are your most precious students!">
+    <meta name="og:description" content="A simple website for sorting Blue Archive characters. Find out who are your top students (surely it's Miyo)!">
     <meta name="og:image" content="https://ba-sorter.grunderx.net/src/assets/Miyo1.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BA Sorter</title>
@@ -30,169 +30,181 @@
 
     <div class="app-title">
         <h1 class="title">Blue Archive Character Sorter</h1>
-        <p class="subtitle">Find out who are your most precious students!</p>
+        <p class="subtitle">Find out who are your top students!</p>
     </div>
 
-    <div class="progress">
-        <span class="progressbattle"></span>
-        <div class="progressbar">
-            <div class="progressfill"><span class="progresstext"></span></div>
+    <div id="sorter-section" class="section-container">
+        <div class="progress hidden">
+            <span class="progressbattle"></span>
+            <div class="progressbar">
+                <div class="progressfill"><span class="progresstext"></span></div>
+            </div>
+        </div>
+
+        <div class="sorter">
+            <img src="src/assets/Miyo1.png" id="left-img" class="left sort image">
+
+            <div id="start-btn" class="starting start sorter-control hidden">Click to Start!<br><br><span class="shill-text">"MAKE ME YOUR FIRST, OKAY?"  <br>— MIYO</span></div>
+            <div id="load-btn" class="starting load sorter-control hidden">Load <span></span></div>
+
+            <div class="loading sorter-control hidden"><div></div><span>Loading...</span></div>
+
+            <div id="tie-btn" class="sorting tie sorter-control hidden">Tie</div>
+            <div id="undo-btn" class="sorting undo sorter-control hidden">Undo</div>
+            <div id="save-btn" class="sorting save sorter-control hidden">Save Progress</div>
+
+            <div id="result-save-btn" class="finished save sorter-control hidden">Generate Result URL</div>
+            <div id="result-gen-img-btn" class="finished getimg sorter-control hidden">Generate Image</div>
+            <div id="result-gen-text-btn" class="finished list sorter-control hidden">Generate Text List</div>
+
+            <img src="src/assets/Miyo2.png" id="right-img" class="right sort image">
+
+            <div id="left-text" class="left sort text hidden"><p></p></div>
+            <div id="right-text" class="right sort text hidden"><p></p></div>
         </div>
     </div>
 
-    <div class="sorter">
-        <img src="src/assets/Miyo1.png" class="left sort image">
-
-        <div class="starting start button">Click to Start!<br><br><span class="shill-text">"MAKE ME YOUR FIRST, OKAY?"  <br>— MIYO</span></div>
-        <div class="starting load button">Load <span></span></div>
-
-        <div class="loading button"><div></div><span>Loading...</span></div>
-
-        <div class="sorting tie button">Tie</div>
-        <div class="sorting undo button">Undo</div>
-        <div class="sorting save button">Save Progress</div>
-
-        <div class="finished save button">Generate Result URL</div>
-        <div class="finished getimg button">Generate Image</div>
-        <div class="finished list button">Generate Text List</div>
-
-        <img src="src/assets/Miyo2.png" class="right sort image">
-
-        <div class="left sort text"><p></p></div>
-        <div class="right sort text"><p></p></div>
+    <div id="options-section" class="section-container">
+        <div class="controls-toggle mobile-only" hidden>
+            <button id="mobile-controls-toggle-btn" class="btn" type="button">Display Mobile Controls</button>
+        </div>
+        
+        <div class="options"></div>
     </div>
 
-    <div class="options"></div>
-    <div class="image selector">Display Images on Result: </div>
-    <div class="time taken"></div>
-    <div class="results"></div>
-
-    <div class="controls-toggle mobile-only" hidden>
-        <button id="mobile-controls-toggle-btn" type="button">Display Mobile Controls</button>
+    <div id="results-section" class="section-container hidden">
+        <div id="result-img-count-selector" class="image selector hidden">Display Images on Result: </div>
+        <div class="time taken"></div>
+        <br>
+        <div id="results" class="results hidden"></div>
     </div>
 
-    <div class="info">
-        <p>Sorter for <a href="https://en.wikipedia.org/wiki/Blue_Archive" target="_blank">Blue Archive</a> characters.</p>
-        <p>Originally hosted due to the <a href="https://ba-sort.netlify.app" target="_blank">usual site</a> being outdated for quite a while at the time.</p>
-        <p>Modified a bit to suit GrunderX's tastes. Also improved for mobile device access.</p>
+    <div id="info-section" class="section-container">
+        <div class="info">
+            <p>Sorter for <a href="https://en.wikipedia.org/wiki/Blue_Archive" target="_blank">Blue Archive</a> characters.</p>
+            <p>Originally hosted due to the <a href="https://ba-sort.netlify.app" target="_blank">usual site</a> being outdated for quite a while at the time.</p>
+            <p>Modified a bit to suit GrunderX's tastes. Also improved for mobile device access.</p>
 
-        <br>
+            <br>
 
-        <p>Pick your sources, and hit the Start button.</p>
-        <p><strong>Certain options have details that you can hover to read.</strong></p>
-        <p>Click on the character you like better from the two, or tie them if you like them equally or don't know them.</p>
-        <p>Depending on how many sources you pick, you'll get up to 700+ picks, so set aside a good few cups of tea for this.</p>
+            <p>Pick your sources, and hit the Start button.</p>
+            <p><strong>Certain options have details that you can hover to read.</strong></p>
+            <p>Click on the character you like better from the two, or tie them if you like them equally or don't know them.</p>
+            <p>Depending on how many sources you pick, you'll get up to 700+ picks, so set aside a good few cups of tea for this.</p>
 
-        <br>
-		
-        <table class="controls-table desktop-only">
-            <thead>
-                <tr class="head">
-                    <td colspan="2">Keyboard Controls</td>
-                </tr>
-            </thead>
-            <tbody id="in-sorting-controls-section">
-                <tr>
-                    <td colspan="2"><b>During Sorting</b></td>
-                </tr>
-            </tbody>
-            <tbody id="pre-sorting-controls-section">
-                <tr>
-                    <td colspan="2"><b>Before Sorting</b></td>
-                </tr>
-            </tbody>
-            <!-- <tbody id="post-sorting-controls-section">
-                <tr>
-                    <td colspan="2"><b>After Sorting</b></td>
-                </tr>
-            </tbody> -->
-        </table>
+            <br>
+            
+            <table class="controls-table desktop-only">
+                <thead>
+                    <tr class="head">
+                        <td colspan="2">Keyboard Controls</td>
+                    </tr>
+                </thead>
+                <tbody id="in-sorting-controls-section">
+                    <tr>
+                        <td colspan="2"><b>During Sorting</b></td>
+                    </tr>
+                </tbody>
+                <tbody id="pre-sorting-controls-section">
+                    <tr>
+                        <td colspan="2"><b>Before Sorting</b></td>
+                    </tr>
+                </tbody>
+                <!-- <tbody id="post-sorting-controls-section">
+                    <tr>
+                        <td colspan="2"><b>After Sorting</b></td>
+                    </tr>
+                </tbody> -->
+            </table>
 
-        <br>
+            <br>
 
-        <table class="changes-table">
-            <tbody>
-                <tr class="head">
-                    <td colspan="2"><b>Latest Changes (18 March 2026)</b></td>
-                </tr>
-                <tr>
-                    <td class="left">No longer JP only</td>
-                    <td class="right">
-                        <ul>
-                            <li>Kakehashi Subaru</li>
-                            <li>Tachiki Maia</li>
-                            <li>Wakasa Fuyu</li>
-                            <li>Usuba Ritsu</li>
-                            <li>Hiromi</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="left">New characters</td>
-                    <td class="right">
-                        <ul>
-                            <li>Hanemoto Tsubasa</li>
-                            <li>Misuzu</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="left">No longer NPCs</td>
-                    <td class="right">
-                        <ul>
-                            <li>Shima Konoka</li>
-                            <li>Kinui Rena</li>
-                        </ul>
-                    </td>
-                </tr>
-                <!-- <tr>
-                    <td class="left">Assigned to school</td>
-                    <td class="right">
-                        <ul>
+            <table class="changes-table">
+                <tbody>
+                    <tr class="head">
+                        <td colspan="2"><b>Latest Changes (18 March 2026)</b></td>
+                    </tr>
+                    <tr>
+                        <td class="left">No longer JP only</td>
+                        <td class="right">
+                            <ul>
+                                <li>Kakehashi Subaru</li>
+                                <li>Tachiki Maia</li>
+                                <li>Wakasa Fuyu</li>
+                                <li>Usuba Ritsu</li>
+                                <li>Hiromi</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">New characters</td>
+                        <td class="right">
+                            <ul>
+                                <li>Hanemoto Tsubasa</li>
+                                <li>Misuzu</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">No longer NPCs</td>
+                        <td class="right">
+                            <ul>
+                                <li>Shima Konoka</li>
+                                <li>Kinui Rena</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td class="left">Assigned to school</td>
+                        <td class="right">
+                            <ul>
 
-                        </ul>
-                    </td>
-                </tr> -->
-            </tbody>
-        </table>
-        
-        <br>
-        <br>
+                            </ul>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-        <a href="https://github.com/grunderx/charasort-bluearchive" target="_blank">Source Code</a> | <a href="https://github.com/execfera/charasort/" target="_blank">Based on this project</a> | <a class="clearsave">Clear Save Data</a>
-        <p>Originally inspired by <a href="http://mainyan.sakura.ne.jp/thsort.html" target="_blank">this site</a> | <a href="https://bluearchive.nexon.com/home" target="_blank">Blue Archive</a> by <a href="https://en.wikipedia.org/wiki/Nexon" target="_blank">Nexon</a></p>
-        
-        <div id="mobile-controls" hidden>
-            <div class="sticky-nav">
-                <button class="nav-btn top-row mobile-left-btn">
-                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                <button class="nav-btn top-row mobile-right-btn">
-                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                <button class="nav-btn bot-row mobile-undo-btn">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
-                    </svg>
-                </button>
-                <button class="nav-btn bot-row mobile-tie-btn">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                    </svg>
-                </button>
-                <button class="nav-btn bot-row mobile-save-btn">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8" />
-                    </svg>
-                </button>
-            </div>
+    <div class="section-container">
+        <div class="info">
+            <a href="https://github.com/grunderx/charasort-bluearchive" target="_blank">Source Code</a> | Based on <a href="https://github.com/execfera/charasort/" target="_blank">this project</a> by execfera | <a id="clear-save-btn" class="clearsave">Clear Save Data</a>
+            <p>Originally inspired by <a href="http://mainyan.sakura.ne.jp/thsort.html" target="_blank">this site</a> | <a href="https://bluearchive.nexon.com/home" target="_blank">Blue Archive</a> by <a href="https://en.wikipedia.org/wiki/Nexon" target="_blank">Nexon</a></p>
         </div>
     </div>
 </div>
+
+<div id="mobile-controls" hidden>
+    <div class="sticky-nav">
+        <button id="mobile-left-btn" class="nav-btn top-row mobile-left-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button id="mobile-right-btn" class="nav-btn top-row mobile-right-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button id="mobile-undo-btn" class="nav-btn bot-row mobile-undo-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+            </svg>
+        </button>
+        <button id="mobile-tie-btn" class="nav-btn bot-row mobile-tie-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+            </svg>
+        </button>
+        <button id="mobile-save-btn" class="nav-btn bot-row mobile-save-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8" />
+            </svg>
+        </button>
+    </div>
+</div>
+
 </body>
 
 </html>
