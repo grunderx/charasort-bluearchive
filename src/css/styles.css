@@ -18,17 +18,20 @@ body {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .progress {
   margin-bottom: 1em;
-  width: 600px;
+  width: 100%;
   display: block;
 }
 
 .progressbar {
   position: relative;
-  width: 590px;
+  width: calc(100% - 10px);
   border: 1px solid #8DB66A;
   margin-top: 5px;
   padding: 3px;
@@ -38,7 +41,7 @@ body {
 
 .progresstext {
   position: absolute;
-  width: 592px;
+  width: calc(100% - 8px);
   margin: 4px 0px;
   text-align: center;
   font-size: 0.7em;
@@ -54,8 +57,9 @@ body {
   margin: 0px auto;
   display: grid;
   grid-template-columns: 160px 1fr 160px;
-  grid-gap: 16px;
-  width: 600px;
+  row-gap: 16px;
+  column-gap: 32px;
+  width: 100%;
 }
 
 .button {
@@ -184,7 +188,7 @@ body {
   text-align: left;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  width: 600px;
+  width: 100%;
 }
 
 .options > div {
@@ -206,7 +210,7 @@ label:hover {
 }
 
 .image.selector {
-  width: 600px;
+  width: 100%;
   display: block;
   text-align: center;
   font-size: 0.75em;
@@ -214,7 +218,7 @@ label:hover {
 
 .time.taken {
   margin-top: 0.5em;
-  width: 600px;
+  width: 100%;
   display: block;
   text-align: center;
   font-size: 0.75em;
@@ -431,6 +435,7 @@ hr{
   border-radius: 5px;
   padding: 24px;
   margin-bottom: 16px;
+  width: 100%;
 }
 
 /* Mobile styles */
@@ -529,6 +534,7 @@ hr{
     margin-left: 6px;
     margin-right: 6px;
     box-sizing: border-box;
+    max-width: 95%;
   }
 
   .container {
