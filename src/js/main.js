@@ -554,17 +554,16 @@ function result(imageNum = 5) {
   document.querySelector('#info-section').classList.add('hidden');
   document.querySelector('.controls-toggle').classList.add('hidden');
 
-  const header = '<div class="result head"><div class="left">#</div><div class="right">Name</div></div>';
   const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <br><br> <button class="btn" onclick="location.href='${location.protocol}//${sorterURL}'">Do another sorter</button>`;
   const imgRes = (char, num) => {
-    const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
+    const charName = reduceTextWidth(char.name, 'Arial 12px', 130);
     const charTooltip = char.name !== charName ? char.name : '';
-    return `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${char.img}"><div><span title="${charTooltip}">${charName}</span></div></div></div>`;
+    return `<div class="result image"><div class="rank">${num}</div><img src="${char.img}"><div class="name" title="${charTooltip}">${charName}</div></div>`;
   }
   const res = (char, num) => {
-    const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
+    const charName = reduceTextWidth(char.name, 'Arial 12px', 200);
     const charTooltip = char.name !== charName ? char.name : '';
-    return `<div class="result"><div class="left">${num}</div><div class="right"><span title="${charTooltip}">${charName}</span></div></div>`;
+    return `<div class="result"><div class="rank">${num}</div><div class="name" title="${charTooltip}">${charName}</div></div>`;
   }
 
   let rankNum       = 1;
@@ -575,16 +574,19 @@ function result(imageNum = 5) {
   const resultTable = document.querySelector('.results');
   const timeElem = document.querySelector('.time.taken');
 
-  resultTable.innerHTML = header;
+  resultTable.innerHTML = '<div class="results-images"></div><div class="results-list"><div class="result head"><div class="rank">#</div><div class="name">Name</div></div></div>';
   timeElem.innerHTML = timeStr;
+
+  const imagesContainer = resultTable.querySelector('.results-images');
+  const listContainer = resultTable.querySelector('.results-list');
 
   characterDataToSort.forEach((val, idx) => {
     const characterIndex = finalSortedIndexes[idx];
     const character = characterDataToSort[characterIndex];
     if (imageDisplay-- > 0) {
-      resultTable.insertAdjacentHTML('beforeend', imgRes(character, rankNum));
+      imagesContainer.insertAdjacentHTML('beforeend', imgRes(character, rankNum));
     } else {
-      resultTable.insertAdjacentHTML('beforeend', res(character, rankNum));
+      listContainer.insertAdjacentHTML('beforeend', res(character, rankNum));
     }
     finalCharacters.push({ rank: rankNum, name: character.name });
 
@@ -668,7 +670,7 @@ function generateImage() {
   const tzoffset = (new Date()).getTimezoneOffset() * 60000;
   const filename = 'sort-' + (new Date(timeFinished - tzoffset)).toISOString().slice(0, -5).replace('T', '(') + ').png';
 
-  html2canvas(document.querySelector('.results')).then(canvas => {
+  html2canvas(document.querySelector('.results-images')).then(canvas => {
     const dataURL = canvas.toDataURL();
     const imgButton = document.querySelector('.finished.getimg.sorter-control');
     const resetButton = document.createElement('a');
