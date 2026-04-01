@@ -58,8 +58,10 @@ body {
 
 .progresstext {
   position: absolute;
-  width: calc(100% - 8px);
-  margin: 4px 0px;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
   text-align: center;
   font-size: 0.75em;
 }
