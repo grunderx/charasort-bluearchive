@@ -358,6 +358,11 @@ hr{
   border: 1px solid #315c15;
 }
 
+.controls-toggle {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
 .changes-table, .controls-table {
   margin-left: auto;
   margin-right: auto;
