@@ -668,10 +668,68 @@ function clearProgress() {
 function generateImage() {
   const timeFinished = timestamp + timeTaken;
   const tzoffset = (new Date()).getTimezoneOffset() * 60000;
-  const filename = 'sort-' + (new Date(timeFinished - tzoffset)).toISOString().slice(0, -5).replace('T', '(') + ').png';
+  const filename = 'sort-' + (new Date(timeFinished - tzoffset)).toISOString().slice(0, -5).replace('T', '(') + ').jpg';
 
-  html2canvas(document.querySelector('.results-images')).then(canvas => {
-    const dataURL = canvas.toDataURL();
+  // Build off-screen container
+  const container = document.createElement('div');
+  container.style.cssText = 'position:absolute;left:-9999px;width:1200px;padding:24px;background:#F1F3F0;font-family:Inter,Arial,sans-serif;font-size:16px;color:#3A4A34;';
+
+  // Header
+  const header = document.createElement('div');
+  header.style.cssText = 'text-align:center;margin-bottom:16px;';
+  header.innerHTML = `<div style="font-size:1.3em;font-weight:bold;font-family:Space Grotesk,Arial,sans-serif;">Blue Archive Character Sorter</div>
+    <div style="font-size:0.75em;margin-top:4px;">Time spent: ${msToReadableTime(timeTaken)}</div>`;
+  container.appendChild(header);
+
+  // Top: image cards
+  const imageSection = document.createElement('div');
+  imageSection.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px;';
+
+  // Bottom: text list
+  const listSection = document.createElement('div');
+  listSection.style.cssText = 'column-count:auto;column-width:200px;column-gap:12px;';
+
+  // Populate from sorted data
+  const finalSortedIndexes = sortedIndexList[0].slice(0);
+  const imageCount = Number(document.querySelector('#result-img-count-selector > select').value) || 5;
+  let rankNum = 1;
+  let tiedRankNum = 1;
+
+  characterDataToSort.forEach((val, idx) => {
+    const characterIndex = finalSortedIndexes[idx];
+    const character = characterDataToSort[characterIndex];
+
+    if (idx < imageCount) {
+      const card = document.createElement('div');
+      card.style.cssText = 'width:100px;border:1px solid #8DB66A;border-radius:8px;overflow:hidden;position:relative;background:white;';
+      card.innerHTML = `<div style="position:absolute;top:4px;left:4px;background:#315C15;color:#FFF;font-size:0.6em;font-weight:bold;width:18px;height:18px;line-height:18px;border-radius:50%;text-align:center;">${rankNum}</div>
+        <img src="${character.img}" style="width:100%;display:block;">
+        <div style="padding:3px 2px;font-size:0.6em;font-weight:bold;text-align:center;background:rgba(49,92,21,0.8);color:#FFF;position:absolute;bottom:0;left:0;right:0;">${character.name}</div>`;
+      imageSection.appendChild(card);
+    }
+
+    const row = document.createElement('div');
+    row.style.cssText = `display:flex;align-items:center;padding:2px 6px;font-size:0.65em;border-bottom:1px solid #8DB66A;break-inside:avoid;${idx % 2 === 0 ? 'background:#F1F3F0;' : ''}`;
+    row.innerHTML = `<span style="width:30px;font-weight:bold;text-align:right;margin-right:8px;flex-shrink:0;">${rankNum}</span><span>${character.name}</span>`;
+    listSection.appendChild(row);
+
+    if (idx < characterDataToSort.length - 1) {
+      if (tiedDataList[characterIndex] === finalSortedIndexes[idx + 1]) {
+        tiedRankNum++;
+      } else {
+        rankNum += tiedRankNum;
+        tiedRankNum = 1;
+      }
+    }
+  });
+
+  container.appendChild(imageSection);
+  container.appendChild(listSection);
+  document.body.appendChild(container);
+
+  html2canvas(container).then(canvas => {
+    document.body.removeChild(container);
+    const dataURL = canvas.toDataURL('image/jpeg', 0.6);
     const imgButton = document.querySelector('.finished.getimg.sorter-control');
     const resetButton = document.createElement('a');
 
