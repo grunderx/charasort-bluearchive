@@ -245,9 +245,10 @@ label:hover {
   font-size: 0.75em;
   display: flex;
   align-content: flex-start;
-  width: 80%;
-  margin: 2em auto;
+  width: 100%;
+  padding: 16px;
   background-color: var(--color-bg-results);
+  margin-bottom: 16px;
 }
 
 @media all and (min-width: 769px) {
