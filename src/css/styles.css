@@ -161,6 +161,7 @@ body {
   margin: auto;
   grid-row: 1 / 7;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .sorter > .image:hover{
