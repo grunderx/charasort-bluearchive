@@ -329,14 +329,7 @@ label:hover {
   border-bottom: none;
 }
 
-.result.head {
-  background-color: var(--color-green-dark);
-  color: #FFF;
-  font-weight: bold;
-  font-size: 0.875em;
-}
-
-.result:not(.head):nth-child(even) {
+.result:nth-child(even) {
   background-color: var(--color-bg-light);
 }
 
@@ -350,7 +343,6 @@ label:hover {
 
 .result .name {
   flex: 1;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

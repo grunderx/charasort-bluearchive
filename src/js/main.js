@@ -574,7 +574,7 @@ function result(imageNum = 5) {
   const resultTable = document.querySelector('.results');
   const timeElem = document.querySelector('.time.taken');
 
-  resultTable.innerHTML = '<div class="results-images"></div><div class="results-list"><div class="result head"><div class="rank">#</div><div class="name">Name</div></div></div>';
+  resultTable.innerHTML = '<div class="results-images"></div><div class="results-list"></div>';
   timeElem.innerHTML = timeStr;
 
   const imagesContainer = resultTable.querySelector('.results-images');
