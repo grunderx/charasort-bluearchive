@@ -676,7 +676,7 @@ dataSet[dataSetVersion].characterData = [
   },
   //--npc
   {
-    name: "Mirai",
+    name: "Azuma Mirai",
     img: "mirai.jpg",
     opts: {
       school: ["Millenium"],
