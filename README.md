@@ -3,8 +3,6 @@ A web based character sorter for Blue Archive Based on [charasort](https://githu
 
 https://ba-sorter.grunderx.net/
 
-I'm planning to overhaul the UI so it looks a bit more modern while keeping the sorting logic, overall flow, and site size low.
-
 # charasort
 A web based character sorter. Allows users to run through a manual merge sort of their favorite
 characters from a set.
@@ -26,7 +24,7 @@ This is a list of things you need to change for your sorter, for each file.
 
  * `index.html`
    * Sorter name: Change under `starting start button` and the `<title>` tags.
-   * Starting banner images: 120px x 180px, under `left sort image` and `right sort image`.
+   * Starting banner images: 160px x 240px, under `left sort image` and `right sort image`.
    * OpenGraph tags: `og:site_name`, `og:description` and `og:image` will show up on embeds when linked to social media such as Facebook, Twitter and Discord.
    * Sorter info: Insert whatever you like under the `info` tag.
    * Website icon: Remember to get your own `favicon.ico`!
@@ -58,7 +56,7 @@ This is a list of things you need to change for your sorter, for each file.
     Parameters:
 
     * `name`: The name of the character to be displayed. **Required.**
-    * `img`: An image filename of the character, in 120px x 180px, to be added to `imageRoot` in `data.js`. **Required.**
+    * `img`: An image filename of the character, in 160px x 240px, to be added to `imageRoot` in `data.js`. **Required.**
     * `opts`: An object of 'options' that will be used to filter out characters that will be used. Further explanation below. **Required.**
 
     Example:
