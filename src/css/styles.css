@@ -96,18 +96,18 @@ body {
   text-align: center;
 }
 
-/* #start-btn {
+#start-btn {
   grid-row: span 6;
-} */
+}
 
 .sorter-control:hover{
   background-color: var(--color-yellow);
 }
 
-/* #load-btn {
+#load-btn {
   grid-row: span 3;
-  display: none;
-} */
+  /* display: none; */
+}
 
 .sorting.sorter-control, .finished.sorter-control {
   grid-row: span 2;
