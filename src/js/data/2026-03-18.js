@@ -148,7 +148,7 @@ dataSet[dataSetVersion].characterData = [
   },
   //--npc
   {
-    name: "Tachiki Maia",
+    name: "Tachigi Maia",
     img: "maia.jpg",
     opts: {
       school: ["Arius"],
