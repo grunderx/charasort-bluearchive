@@ -668,7 +668,7 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
-    name: "Key",
+    name: "Tendou Kei",
     img: "key.jpg",
     opts: {
       school: ["Millenium"],
