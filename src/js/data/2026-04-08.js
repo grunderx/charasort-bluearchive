@@ -25,35 +25,28 @@ dataSet[dataSetVersion].options = [
     ]
   },
   {
-    name: "Show Global-released only",
+    name: "Show Global-appeared only",
     key: "notyetGlobal",
-    tooltip: "Check this to disable characters that haven't yet made an appearance on Global.",
+    tooltip: "Disable characters that haven't yet made an appearance on Global.",
     checked: false
   },
   {
-    name: "Disable NPCs",
+    name: "Disable NPCs (based on JP)",
     key: "NPC",
-    tooltip: "Check this to disable non-playable characters.",
+    tooltip: "Disable non-playable characters based on JP release schedule.",
     checked: false
   },
   {
     name: "Disable collab characters",
     key: "collab",
-    tooltip: "Check this to disable collab characters (Hatsune Miku, Misaka Mikoto, etc.)",
+    tooltip: "Disable collab characters (Hatsune Miku, Misaka Mikoto, etc.)",
     checked: false
   },
   {
     name: "Remove duplicate characters",
     key: "dupes",
-    tooltip: "Check this to remove Duplicate characters (ex. Shun and Small Shun)."
+    tooltip: "Remove Duplicate characters (ex. Shun and Small Shun)."
   }
-  /*
-  {
-    name: "Remove Non-Girls",
-    key: "notgirl",
-    tooltip: "Check this to remove all non-female characters."
-  },
-  */
   
 ];
 
