@@ -801,7 +801,7 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
-    name: "Sunohara Shun (kid)",
+    name: "Sunohara Shun (Kid)",
     img: "shun_kid.jpg",
     opts: {
       school: ["Shanhaijing"],
@@ -820,6 +820,16 @@ dataSet[dataSetVersion].characterData = [
     img: "rumi.jpg",
     opts: {
       school: ["Shanhaijing"]
+    }
+  },
+  {
+    name: "Akeshiro Rumi (Kid)",
+    img: "rumi_kid.jpg",
+    opts: {
+      school: ["Shanhaijing"],
+      jpNPC: true,
+      globalNPC: true,
+      dupes: true
     }
   },
   {
@@ -1176,6 +1186,25 @@ dataSet[dataSetVersion].characterData = [
 
   // Wild Hunt
   {
+    name: "Kiyosumi Akira",
+    img: "akira.jpg",
+    opts: {
+      school: ["WildHunt"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
+  {
+    name: "Miria",
+    img: "miria.jpg",
+    opts: {
+      school: ["WildHunt"],
+      jpNPC: true,
+      globalNPC: true,
+      dupes: true
+    }
+  },
+  {
     name: "Sakurai Miyo",
     img: "miyo.jpg",
     opts: {
@@ -1295,15 +1324,6 @@ dataSet[dataSetVersion].characterData = [
   {
     name: "GSC President",
     img: "gsc_president.jpg",
-    opts: {
-      school: ["Other"],
-      jpNPC: true,
-      globalNPC: true,
-    }
-  },
-  {
-    name: "Kiyosumi Akira",
-    img: "akira.jpg",
     opts: {
       school: ["Other"],
       jpNPC: true,
