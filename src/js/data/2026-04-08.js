@@ -5,8 +5,8 @@ dataSet[dataSetVersion].options = [
   {
     name: "Filter by School",
     key: "school",
-    tooltip: "Check this to restrict characters from certain school.",
-    checked: false,
+    tooltip: "Select the schools you want to include.",
+    checked: true,
     sub: [
       { name: "Abydos High School", key: "Abydos" },
       { name: "Gehenna Academy", key: "Gehenna" },
@@ -25,15 +25,21 @@ dataSet[dataSetVersion].options = [
     ]
   },
   {
-    name: "Show Global-appeared only",
+    name: "Disable JP-only characters",
     key: "notyetGlobal",
-    tooltip: "Disable characters that haven't yet made an appearance on Global.",
+    tooltip: "Disable characters that haven't yet made an appearance on Global, both playable and non-playable.",
     checked: false
   },
   {
-    name: "Disable NPCs (based on JP)",
-    key: "NPC",
+    name: "Disable JP NPCs",
+    key: "jpNPC",
     tooltip: "Disable non-playable characters based on JP release schedule.",
+    checked: false
+  },
+  {
+    name: "Disable Global & JP NPCs",
+    key: "globalNPC",
+    tooltip: "Disable non-playable characters based on Global release schedule. Checking this will also disable JP NPCs.",
     checked: false
   },
   {
@@ -47,7 +53,7 @@ dataSet[dataSetVersion].options = [
     key: "dupes",
     tooltip: "Remove Duplicate characters (ex. Shun and Small Shun)."
   }
-  
+
 ];
 
 dataSet[dataSetVersion].characterData = [
@@ -100,7 +106,8 @@ dataSet[dataSetVersion].characterData = [
     img: "yume.jpg",
     opts: {
       school: ["Abydos"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
 
@@ -146,7 +153,8 @@ dataSet[dataSetVersion].characterData = [
     img: "maia.jpg",
     opts: {
       school: ["Arius"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
 
@@ -318,7 +326,8 @@ dataSet[dataSetVersion].characterData = [
     img: "erika.jpg",
     opts: {
       school: ["Gehenna"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
 
@@ -442,13 +451,14 @@ dataSet[dataSetVersion].characterData = [
       school: ["Hyakkiyako"],
     }
   },
-   //--npc
+  //--npc
   {
     name: "Kuzunoha",
     img: "kuzunoha.jpg",
     opts: {
       school: ["Hyakkiyako"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -456,7 +466,8 @@ dataSet[dataSetVersion].characterData = [
     img: "arata.jpg",
     opts: {
       school: ["Hyakkiyako"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -464,7 +475,8 @@ dataSet[dataSetVersion].characterData = [
     img: "shuro.jpg",
     opts: {
       school: ["Hyakkiyako"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -472,7 +484,8 @@ dataSet[dataSetVersion].characterData = [
     img: "kokuriko.jpg",
     opts: {
       school: ["Hyakkiyako"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -480,7 +493,8 @@ dataSet[dataSetVersion].characterData = [
     img: "ayame.jpg",
     opts: {
       school: ["Hyakkiyako"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -488,7 +502,8 @@ dataSet[dataSetVersion].characterData = [
     img: "azami.jpg",
     opts: {
       school: ["Hyakkiyako"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
 
@@ -564,7 +579,7 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
-	name: "Toyomi Kotori",
+    name: "Toyomi Kotori",
     img: "kotori.jpg",
     opts: {
       school: ["Millenium"]
@@ -661,20 +676,22 @@ dataSet[dataSetVersion].characterData = [
       school: ["Millenium"],
     }
   },
+  //--npc
   {
     name: "Tendou Kei",
     img: "key.jpg",
     opts: {
       school: ["Millenium"],
+      globalNPC: true,
     }
   },
-  //--npc
   {
     name: "Azuma Mirai",
     img: "mirai.jpg",
     opts: {
       school: ["Millenium"],
-      NPC: true,
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -682,7 +699,8 @@ dataSet[dataSetVersion].characterData = [
     img: "tsubasa.jpg",
     opts: {
       school: ["Millenium"],
-      NPC: true,
+      jpNPC: true,
+      globalNPC: true,
       notyetGlobal: true
     }
   },
@@ -824,7 +842,8 @@ dataSet[dataSetVersion].characterData = [
     img: "kaguya.jpg",
     opts: {
       school: ["Shanhaijing"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
 
@@ -863,7 +882,8 @@ dataSet[dataSetVersion].characterData = [
     img: "yukino.jpg",
     opts: {
       school: ["SRT"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -871,7 +891,8 @@ dataSet[dataSetVersion].characterData = [
     img: "niko.jpg",
     opts: {
       school: ["SRT"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -879,7 +900,8 @@ dataSet[dataSetVersion].characterData = [
     img: "kurumi.jpg",
     opts: {
       school: ["SRT"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -887,7 +909,8 @@ dataSet[dataSetVersion].characterData = [
     img: "otogi.jpg",
     opts: {
       school: ["SRT"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
 
@@ -1098,20 +1121,22 @@ dataSet[dataSetVersion].characterData = [
       school: ["Valkyrie"]
     }
   },
+  //--npc
   {
     name: "Shima Konoka",
     img: "konoka.jpg",
     opts: {
       school: ["Valkyrie"],
+      globalNPC: true,
     }
   },
-  //--npc
   {
     name: "Misuzu",
     img: "misuzu.jpg",
     opts: {
       school: ["Valkyrie"],
-      NPC: true,
+      jpNPC: true,
+      globalNPC: true,
       notyetGlobal: true
     }
   },
@@ -1144,7 +1169,8 @@ dataSet[dataSetVersion].characterData = [
     img: "suou.jpg",
     opts: {
       school: ["Highlander"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
 
@@ -1189,6 +1215,7 @@ dataSet[dataSetVersion].characterData = [
     img: "rena.jpg",
     opts: {
       school: ["WildHunt"],
+      globalNPC: true,
     }
   },
   // --npc
@@ -1197,7 +1224,8 @@ dataSet[dataSetVersion].characterData = [
     img: "tsumugi_new.jpg",
     opts: {
       school: ["WildHunt"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1205,17 +1233,19 @@ dataSet[dataSetVersion].characterData = [
     img: "hiromi.jpg",
     opts: {
       school: ["WildHunt"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
-  
+
   // Kronos
-  { 
+  {
     name: "Kazemaki Mai",
     img: "mai.jpg",
     opts: {
       school: ["Kronos"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1223,10 +1253,11 @@ dataSet[dataSetVersion].characterData = [
     img: "shinon.jpg",
     opts: {
       school: ["Kronos"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
-  
+
   //Other
   {
     name: "Hatsune Miku",
@@ -1237,7 +1268,7 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
-	name: "Misaka Mikoto",
+    name: "Misaka Mikoto",
     img: "misaka.jpg",
     opts: {
       school: ["Other"],
@@ -1245,7 +1276,7 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
-	name: "Shokuhou Misaki",
+    name: "Shokuhou Misaki",
     img: "shokuhou.jpg",
     opts: {
       school: ["Other"],
@@ -1253,7 +1284,7 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
-	name: "Saten Ruiko",
+    name: "Saten Ruiko",
     img: "saten.jpg",
     opts: {
       school: ["Other"],
@@ -1266,7 +1297,8 @@ dataSet[dataSetVersion].characterData = [
     img: "gsc_president.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1274,7 +1306,8 @@ dataSet[dataSetVersion].characterData = [
     img: "akira.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1282,7 +1315,8 @@ dataSet[dataSetVersion].characterData = [
     img: "aoi.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1290,7 +1324,8 @@ dataSet[dataSetVersion].characterData = [
     img: "arona.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1298,7 +1333,8 @@ dataSet[dataSetVersion].characterData = [
     img: "ayumu.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1306,7 +1342,8 @@ dataSet[dataSetVersion].characterData = [
     img: "kai.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1314,7 +1351,8 @@ dataSet[dataSetVersion].characterData = [
     img: "kaya.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1322,7 +1360,8 @@ dataSet[dataSetVersion].characterData = [
     img: "momoka.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1330,7 +1369,8 @@ dataSet[dataSetVersion].characterData = [
     img: "plana.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1338,7 +1378,8 @@ dataSet[dataSetVersion].characterData = [
     img: "rin.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1346,7 +1387,8 @@ dataSet[dataSetVersion].characterData = [
     img: "sora.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1354,7 +1396,8 @@ dataSet[dataSetVersion].characterData = [
     img: "haine.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1362,7 +1405,8 @@ dataSet[dataSetVersion].characterData = [
     img: "sumomo.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1370,7 +1414,8 @@ dataSet[dataSetVersion].characterData = [
     img: "ein.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1378,7 +1423,8 @@ dataSet[dataSetVersion].characterData = [
     img: "ohr.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1386,7 +1432,8 @@ dataSet[dataSetVersion].characterData = [
     img: "sof.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1394,7 +1441,8 @@ dataSet[dataSetVersion].characterData = [
     img: "malkuth.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1402,7 +1450,8 @@ dataSet[dataSetVersion].characterData = [
     img: "prof-niyaniya.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   },
   {
@@ -1410,8 +1459,9 @@ dataSet[dataSetVersion].characterData = [
     img: "akemi.jpg",
     opts: {
       school: ["Other"],
-      NPC: true
+      jpNPC: true,
+      globalNPC: true,
     }
   }
 ];
-	
+
