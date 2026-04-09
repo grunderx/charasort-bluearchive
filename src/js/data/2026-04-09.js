@@ -481,7 +481,7 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
-    name: "Kokuriko",
+    name: "Kadenokouji Kokuriko",
     img: "kokuriko.jpg",
     opts: {
       school: ["Hyakkiyako"],
@@ -851,6 +851,15 @@ dataSet[dataSetVersion].characterData = [
   {
     name: "Urushibara Kaguya",
     img: "kaguya.jpg",
+    opts: {
+      school: ["Shanhaijing"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
+  {
+    name: "Shintani Kai",
+    img: "kai.jpg",
     opts: {
       school: ["Shanhaijing"],
       jpNPC: true,
@@ -1399,15 +1408,6 @@ dataSet[dataSetVersion].characterData = [
   {
     name: "Arona",
     img: "arona.jpg",
-    opts: {
-      school: ["Other"],
-      jpNPC: true,
-      globalNPC: true,
-    }
-  },
-  {
-    name: "Shintani Kai",
-    img: "kai.jpg",
     opts: {
       school: ["Other"],
       jpNPC: true,
