@@ -3,9 +3,9 @@ dataSet[dataSetVersion] = {};
 
 dataSet[dataSetVersion].options = [
   {
-    name: "Filter by School",
+    name: "Filter by School/Entity",
     key: "school",
-    tooltip: "Select the schools you want to include.",
+    tooltip: "Select the schools/entities you want to include.",
     checked: true,
     sub: [
       { name: "Abydos High School", key: "Abydos" },
@@ -21,6 +21,7 @@ dataSet[dataSetVersion].options = [
       { name: "Highlander Railroad Academy", key: "Highlander" },
       { name: "Wild Hunt Academy of Arts", key: "WildHunt" },
       { name: "Kronos School of Journalism", key: "Kronos" },
+      { name: "General Student Council", key: "GSC" },
       { name: "Other", key: "Other" },
     ]
   },
@@ -1287,6 +1288,80 @@ dataSet[dataSetVersion].characterData = [
     }
   },
 
+  // General Student Council
+  {
+    name: "GSC President",
+    img: "gsc_president.jpg",
+    opts: {
+      school: ["GSC"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
+  {
+    name: "Oki Aoi",
+    img: "aoi.jpg",
+    opts: {
+      school: ["GSC"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
+  {
+    name: "Iwabitsu Ayumu",
+    img: "ayumu.jpg",
+    opts: {
+      school: ["GSC"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
+  {
+    name: "Shiranui Kaya",
+    img: "kaya.jpg",
+    opts: {
+      school: ["GSC"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
+  {
+    name: "Yuragi Momoka",
+    img: "momoka.jpg",
+    opts: {
+      school: ["GSC"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
+  {
+    name: "Nanagami Rin",
+    img: "rin.jpg",
+    opts: {
+      school: ["GSC"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
+  {
+    name: "Haine",
+    img: "haine.jpg",
+    opts: {
+      school: ["GSC"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
+  {
+    name: "Sumomo",
+    img: "sumomo.jpg",
+    opts: {
+      school: ["GSC"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
+
   //Other
   {
     name: "Hatsune Miku",
@@ -1322,35 +1397,8 @@ dataSet[dataSetVersion].characterData = [
   },
   //--npc
   {
-    name: "GSC President",
-    img: "gsc_president.jpg",
-    opts: {
-      school: ["Other"],
-      jpNPC: true,
-      globalNPC: true,
-    }
-  },
-  {
-    name: "Oki Aoi",
-    img: "aoi.jpg",
-    opts: {
-      school: ["Other"],
-      jpNPC: true,
-      globalNPC: true,
-    }
-  },
-  {
     name: "Arona",
     img: "arona.jpg",
-    opts: {
-      school: ["Other"],
-      jpNPC: true,
-      globalNPC: true,
-    }
-  },
-  {
-    name: "Iwabitsu Ayumu",
-    img: "ayumu.jpg",
     opts: {
       school: ["Other"],
       jpNPC: true,
@@ -1367,24 +1415,6 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
-    name: "Shiranui Kaya",
-    img: "kaya.jpg",
-    opts: {
-      school: ["Other"],
-      jpNPC: true,
-      globalNPC: true,
-    }
-  },
-  {
-    name: "Yuragi Momoka",
-    img: "momoka.jpg",
-    opts: {
-      school: ["Other"],
-      jpNPC: true,
-      globalNPC: true,
-    }
-  },
-  {
     name: "Plana",
     img: "plana.jpg",
     opts: {
@@ -1394,35 +1424,8 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
-    name: "Nanagami Rin",
-    img: "rin.jpg",
-    opts: {
-      school: ["Other"],
-      jpNPC: true,
-      globalNPC: true,
-    }
-  },
-  {
     name: "Sora",
     img: "sora.jpg",
-    opts: {
-      school: ["Other"],
-      jpNPC: true,
-      globalNPC: true,
-    }
-  },
-  {
-    name: "Haine",
-    img: "haine.jpg",
-    opts: {
-      school: ["Other"],
-      jpNPC: true,
-      globalNPC: true,
-    }
-  },
-  {
-    name: "Sumomo",
-    img: "sumomo.jpg",
     opts: {
       school: ["Other"],
       jpNPC: true,
