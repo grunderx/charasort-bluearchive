@@ -507,6 +507,15 @@ dataSet[dataSetVersion].characterData = [
       globalNPC: true,
     }
   },
+  {
+    name: "Asakusa Natsuki",
+    img: "natsuki.jpg",
+    opts: {
+      school: ["Hyakkiyako"],
+      jpNPC: true,
+      globalNPC: true,
+    }
+  },
 
   //Millenium
   {
