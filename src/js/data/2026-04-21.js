@@ -1305,6 +1305,16 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
+    name: "GSC President (?)",
+    img: "gsc_president_alt.jpg",
+    opts: {
+      school: ["GSC"],
+      jpNPC: true,
+      globalNPC: true,
+      notyetGlobal: true,
+    }
+  },
+  {
     name: "Oki Aoi",
     img: "aoi.jpg",
     opts: {
