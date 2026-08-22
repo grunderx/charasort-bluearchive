@@ -1233,7 +1233,6 @@ dataSet[dataSetVersion].characterData = [
       school: ["Valkyrie"],
       jpNPC: true,
       globalNPC: true,
-      notyetGlobal: true
     }
   },
 
@@ -1402,7 +1401,6 @@ dataSet[dataSetVersion].characterData = [
       school: ["GSC"],
       jpNPC: true,
       globalNPC: true,
-      notyetGlobal: true,
     }
   },
   {
