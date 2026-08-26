@@ -1,7 +1,8 @@
-:root {
-  --color-green-dark: #315C15;
-  --color-green-mid: #8DB66A;
-  --color-green-link: #559c26;
+/* Miyo colors */
+/* :root {
+  --color-main-dark: #315C15;
+  --color-main-mid: #8DB66A;
+  --color-main-link: #559c26;
   --color-yellow: #F6E94B;
   --color-yellow-dark: #e5d840;
   --color-gold: #FACC2F;
@@ -13,6 +14,24 @@
   --color-hover-accent: #4A7A2E;
   --color-link-hover: #7DB856;
   --color-link-visited: #4A6B3A;
+} */
+
+/* AroPla colors */
+:root {
+  --color-main-dark: #1A5276; 
+  --color-main-mid: #7FB3D5; 
+  --color-main-link: #2980B9; 
+  --color-yellow: #F6E94B;
+  --color-yellow-dark: #e5d840;
+  --color-gold: #FACC2F;
+  --color-text: #2C3E50;
+  --color-bg: #D4E6F1;
+  --color-bg-light: #F0F4F8;
+  --color-bg-results: #E8F0F8;
+  --color-progress: #AED6F1; 
+  --color-hover-accent: #21618C; 
+  --color-link-hover: #5DADE2; 
+  --color-link-visited: #2874A6; 
 }
 
 [hidden] {
@@ -49,7 +68,7 @@ body {
 .progressbar {
   position: relative;
   width: calc(100% - 10px);
-  border: 1px solid var(--color-green-mid);
+  border: 1px solid var(--color-main-mid);
   margin-top: 5px;
   padding: 3px;
   background-color: #fff;
@@ -83,7 +102,7 @@ body {
 
 .sorter-control {
   /* margin-left: 2px; */
-  border: 1px solid var(--color-green-mid);
+  border: 1px solid var(--color-main-mid);
   border-radius: 5px;
   padding: 10px;
   /* grid-column: 2 / 3; */
@@ -122,7 +141,7 @@ body {
   width: 25px;
   height: 25px;
   margin: 50px auto;
-  background-color: var(--color-green-dark);
+  background-color: var(--color-main-dark);
 
   border-radius: 100%;  
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
@@ -178,7 +197,7 @@ body {
   flex-direction: column;
   text-align: center;
   color: white;
-  background-color: var(--color-green-dark);
+  background-color: var(--color-main-dark);
 }
 
 .sorter > .text > p {
@@ -192,13 +211,13 @@ body {
 
 .sorter > .left {
   grid-column: 1 / 2;
-  border: 1px solid var(--color-green-mid);
+  border: 1px solid var(--color-main-mid);
   border-radius: 5px;
 }
 
 .sorter > .right {
   grid-column: 3 / 4;
-  border: 1px solid var(--color-green-mid);
+  border: 1px solid var(--color-main-mid);
   border-radius: 5px;
 }
 
@@ -263,7 +282,7 @@ label:hover {
 .result.image {
   width: 140px;
   background-color: white;
-  border: 1px solid var(--color-green-mid);
+  border: 1px solid var(--color-main-mid);
   border-radius: 8px;
   overflow: hidden;
   text-align: center;
@@ -276,7 +295,7 @@ label:hover {
   position: absolute;
   top: 4px;
   left: 4px;
-  background-color: var(--color-green-dark);
+  background-color: var(--color-main-dark);
   color: #FFF;
   font-size: 0.65em;
   font-weight: bold;
@@ -304,14 +323,14 @@ label:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background-color: rgba(49, 92, 21, 0.8);
+  background-color: rgba(26, 82, 118, 0.8);
   color: #FFF;
 }
 
 .results-list {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--color-green-mid);
+  border: 1px solid var(--color-main-mid);
   border-radius: 8px;
   overflow: hidden;
   font-size: 0.75em;
@@ -322,7 +341,7 @@ label:hover {
   align-items: center;
   padding: 6px 12px;
   font-size: 0.875em;
-  border-bottom: 1px solid var(--color-green-mid);
+  border-bottom: 1px solid var(--color-main-mid);
 }
 
 .result:last-child {
@@ -358,7 +377,7 @@ label:hover {
 }
 
 a {
-  color: var(--color-green-link);
+  color: var(--color-main-link);
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
@@ -378,13 +397,13 @@ b, strong {
 
 select {
   background-color: white;
-  border: 1px solid var(--color-green-mid);
+  border: 1px solid var(--color-main-mid);
   border-radius: 5px;
-  color: var(--color-green-dark);
+  color: var(--color-main-dark);
 }
 
 hr{
-  border: 1px solid var(--color-green-dark);
+  border: 1px solid var(--color-main-dark);
 }
 
 .controls-toggle {
@@ -397,13 +416,13 @@ hr{
   margin-right: auto;
   max-width: 400px;
   width: 100%;
-  border: 0.5px solid var(--color-green-dark);
+  border: 0.5px solid var(--color-main-dark);
   border-collapse: collapse; 
 }
 
 .changes-table .head,
 .controls-table .head {
-  background-color: var(--color-green-dark);
+  background-color: var(--color-main-dark);
   color: #FFF;
   font-weight: bold;
 }
@@ -425,7 +444,7 @@ hr{
   padding: 2px;
   text-align: center;
   vertical-align: middle;
-  border: 0.5px solid var(--color-green-dark);
+  border: 0.5px solid var(--color-main-dark);
 }
 
 .app-title {
@@ -488,9 +507,9 @@ input[type='checkbox'] {
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  color: var(--color-green-dark);
+  color: var(--color-main-dark);
   background-color: white;
-  border: 1px solid var(--color-green-mid);
+  border: 1px solid var(--color-main-mid);
   border-radius: 5px;
   cursor: pointer;
 }
@@ -505,14 +524,14 @@ input[type='checkbox'] {
 
 .btn-primary {
   color: #FFF;
-  background-color: var(--color-green-dark);
-  border-color: var(--color-green-dark);
+  background-color: var(--color-main-dark);
+  border-color: var(--color-main-dark);
 }
 
 .btn-primary:hover {
   background-color: var(--color-yellow);
-  color: var(--color-green-dark);
-  border-color: var(--color-green-mid);
+  color: var(--color-main-dark);
+  border-color: var(--color-main-mid);
 }
 
 .section-container {
@@ -545,11 +564,11 @@ input[type='checkbox'] {
 .nav-btn {
   height: 60px;
   background-color: white;
-  border: 1px solid var(--color-green-mid);
+  border: 1px solid var(--color-main-mid);
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   
-  color: var(--color-green-dark);
+  color: var(--color-main-dark);
   font-weight: bold;
   font-size: 0.875rem;
   
@@ -580,15 +599,15 @@ input[type='checkbox'] {
 }
 
 .nav-btn.top-row {
-  background-color: var(--color-green-dark);
+  background-color: var(--color-main-dark);
   color: white;
-  border: 1px solid var(--color-green-dark);
+  border: 1px solid var(--color-main-dark);
 }
 
 .nav-btn.top-row:hover {
   background-color: var(--color-yellow);
-  color: var(--color-green-dark);
-  border-color: var(--color-green-mid);
+  color: var(--color-main-dark);
+  border-color: var(--color-main-mid);
 }
 
 /* Active/Click Effect */
