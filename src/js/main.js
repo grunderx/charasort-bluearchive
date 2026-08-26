@@ -672,7 +672,7 @@ function generateImage() {
 
   // Build off-screen container
   const container = document.createElement('div');
-  container.style.cssText = 'position:absolute;left:-9999px;width:1200px;padding:24px;background:#F1F3F0;font-family:Inter,Arial,sans-serif;font-size:16px;color:#3A4A34;';
+  container.style.cssText = 'position:absolute;left:-9999px;width:1200px;padding:24px;background:#F0F4F8;font-family:Inter,Arial,sans-serif;font-size:16px;color:#3A4A34;';
 
   // Header
   const header = document.createElement('div');
@@ -701,15 +701,15 @@ function generateImage() {
 
     if (idx < imageCount) {
       const card = document.createElement('div');
-      card.style.cssText = 'width:100px;border:1px solid #8DB66A;border-radius:8px;overflow:hidden;position:relative;background:white;';
-      card.innerHTML = `<div style="position:absolute;top:4px;left:4px;background:#315C15;color:#FFF;font-size:0.6em;font-weight:bold;width:18px;height:18px;line-height:18px;border-radius:50%;text-align:center;">${rankNum}</div>
+      card.style.cssText = 'width:100px;border:1px solid #7FB3D5;border-radius:8px;overflow:hidden;position:relative;background:white;';
+      card.innerHTML = `<div style="position:absolute;top:4px;left:4px;background:#1A5276;color:#FFF;font-size:0.6em;font-weight:bold;width:18px;height:18px;line-height:18px;border-radius:50%;text-align:center;">${rankNum}</div>
         <img src="${character.img}" style="width:100%;display:block;">
-        <div style="padding:3px 2px;font-size:0.6em;font-weight:bold;text-align:center;background:rgba(49,92,21,0.8);color:#FFF;position:absolute;bottom:0;left:0;right:0;">${character.name}</div>`;
+        <div style="padding:3px 2px;font-size:0.6em;font-weight:bold;text-align:center;background:rgba(26,82,118,0.8);color:#FFF;position:absolute;bottom:0;left:0;right:0;">${character.name}</div>`;
       imageSection.appendChild(card);
     }
 
     const row = document.createElement('div');
-    row.style.cssText = `display:flex;align-items:center;padding:2px 6px;font-size:0.65em;border-bottom:1px solid #8DB66A;break-inside:avoid;${idx % 2 === 0 ? 'background:#F1F3F0;' : ''}`;
+    row.style.cssText = `display:flex;align-items:center;padding:2px 6px;font-size:0.65em;border-bottom:1px solid #7FB3D5;break-inside:avoid;${idx % 2 === 0 ? 'background:#F0F4F8;' : ''}`;
     row.innerHTML = `<span style="width:30px;font-weight:bold;text-align:right;margin-right:8px;flex-shrink:0;">${rankNum}</span><span>${character.name}</span>`;
     listSection.appendChild(row);
 
