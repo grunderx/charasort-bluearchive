@@ -15,6 +15,7 @@
   --color-hover-accent: #21618C; 
   --color-link-hover: #5DADE2; 
   --color-link-visited: #2874A6; 
+  --color-checkbox: var(--color-main-dark);
 }
 
 [data-theme="green"] {
@@ -42,6 +43,7 @@
   --color-link-hover: #FF6B9A;
   --color-link-visited: #885B6B;
   --color-text: #DCE5F0;
+  --color-checkbox: var(--color-main-mid);
 }
 
 [hidden] {
@@ -60,7 +62,7 @@ body {
 }
 
 input[type="checkbox"] {
-  accent-color: var(--color-main-dark); 
+  accent-color: var(--color-checkbox); 
 }
 
 .container {
