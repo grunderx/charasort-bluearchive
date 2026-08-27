@@ -1,7 +1,8 @@
 const themeIdSessionKey = '_currentThemeId';
 const themes = {
   '1': { name: 'Blue (default)', value:'default' },
-  '2': { name: 'Green', value: 'green', }
+  '2': { name: 'Green', value: 'green' },
+  '3': { name: 'Plana', value: 'plana' }
 }
 
 function setTheme(themeId) {
