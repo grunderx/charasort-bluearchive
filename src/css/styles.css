@@ -59,6 +59,10 @@ body {
   background-color: var(--color-bg);
 }
 
+input[type="checkbox"] {
+  accent-color: var(--color-main-dark); 
+}
+
 .container {
   margin-top: 2em;
   display: flex;
