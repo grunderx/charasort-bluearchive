@@ -1,22 +1,4 @@
-/* Miyo colors */
-/* :root {
-  --color-main-dark: #315C15;
-  --color-main-mid: #8DB66A;
-  --color-main-link: #559c26;
-  --color-yellow: #F6E94B;
-  --color-yellow-dark: #e5d840;
-  --color-gold: #FACC2F;
-  --color-text: #3A4A34;
-  --color-bg: #D6DED0;
-  --color-bg-light: #F1F3F0;
-  --color-bg-results: #EEF1EB;
-  --color-progress: #B8D89B;
-  --color-hover-accent: #4A7A2E;
-  --color-link-hover: #7DB856;
-  --color-link-visited: #4A6B3A;
-} */
-
-/* AroPla colors */
+/* Default theme */
 :root {
   --color-main-dark: #1A5276; 
   --color-main-mid: #7FB3D5; 
@@ -32,6 +14,23 @@
   --color-hover-accent: #21618C; 
   --color-link-hover: #5DADE2; 
   --color-link-visited: #2874A6; 
+}
+
+[data-theme="green"] {
+  --color-main-dark: #315C15;
+  --color-main-mid: #8DB66A;
+  --color-main-link: #559c26;
+  --color-yellow: #F6E94B;
+  --color-yellow-dark: #e5d840;
+  --color-gold: #FACC2F;
+  --color-text: #3A4A34;
+  --color-bg: #D6DED0;
+  --color-bg-light: #F1F3F0;
+  --color-bg-results: #EEF1EB;
+  --color-progress: #B8D89B;
+  --color-hover-accent: #4A7A2E;
+  --color-link-hover: #7DB856;
+  --color-link-visited: #4A6B3A;
 }
 
 [hidden] {
