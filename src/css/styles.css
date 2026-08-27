@@ -334,7 +334,7 @@ label:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background-color: rgba(26, 82, 118, 0.8);
+  background-color: rgb(from var(--color-main-dark) r g b / 0.8);
   color: #FFF;
 }
 
