@@ -1,4 +1,4 @@
-dataSetVersion = "2026-08-27"; // Change this when creating a new data set version. YYYY-MM-DD format.
+dataSetVersion = "2026-09-25"; // Change this when creating a new data set version. YYYY-MM-DD format.
 dataSet[dataSetVersion] = {};
 
 dataSet[dataSetVersion].options = [
@@ -857,6 +857,33 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   //--npc
+  {
+    name: "Niki Erina",
+    img: "erina.jpg",
+    opts: {
+      school: ["RedWinter"],
+      globalNPC: true,
+      notyetGlobal: true
+    }
+  },
+  {
+    name: "Niki Anna",
+    img: "anna.jpg",
+    opts: {
+      school: ["RedWinter"],
+      globalNPC: true,
+      notyetGlobal: true
+    }
+  },
+  {
+    name: "Furuhata Lana",
+    img: "lana.jpg",
+    opts: {
+      school: ["RedWinter"],
+      globalNPC: true,
+      notyetGlobal: true
+    }
+  },
 
   //Shanhaijing
   {
