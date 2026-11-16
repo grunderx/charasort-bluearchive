@@ -332,11 +332,10 @@ dataSet[dataSetVersion].characterData = [
   },
   //--npc
   {
-    name: "Myouraku Karen",
+    name: "Myouraku Caren",
     img: "karen.jpg",
     opts: {
       school: ["Gehenna"],
-      notyetGlobal: true,
       jpNPC: true,
       globalNPC: true,
     }
@@ -346,7 +345,6 @@ dataSet[dataSetVersion].characterData = [
     img: "shouko.jpg",
     opts: {
       school: ["Gehenna"],
-      notyetGlobal: true,
       jpNPC: true,
       globalNPC: true,
     }
@@ -356,7 +354,6 @@ dataSet[dataSetVersion].characterData = [
     img: "mayumi.jpg",
     opts: {
       school: ["Gehenna"],
-      notyetGlobal: true,
       jpNPC: true,
       globalNPC: true,
     }
@@ -551,7 +548,6 @@ dataSet[dataSetVersion].characterData = [
     img: "kanae.jpg",
     opts: {
       school: ["Hyakkiyako"],
-      notyetGlobal: true,
       jpNPC: true,
       globalNPC: true,
     }
@@ -561,7 +557,6 @@ dataSet[dataSetVersion].characterData = [
     img: "suiko.jpg",
     opts: {
       school: ["Hyakkiyako"],
-      notyetGlobal: true,
       jpNPC: true,
       globalNPC: true,
     }
@@ -571,7 +566,6 @@ dataSet[dataSetVersion].characterData = [
     img: "nagomi.jpg",
     opts: {
       school: ["Hyakkiyako"],
-      notyetGlobal: true,
       jpNPC: true,
       globalNPC: true,
     }
@@ -581,7 +575,6 @@ dataSet[dataSetVersion].characterData = [
     img: "youko.jpg",
     opts: {
       school: ["Hyakkiyako"],
-      notyetGlobal: true,
       jpNPC: true,
       globalNPC: true,
     }
@@ -781,7 +774,6 @@ dataSet[dataSetVersion].characterData = [
       school: ["Millenium"],
       jpNPC: true,
       globalNPC: true,
-      notyetGlobal: true
     }
   },
 
@@ -1420,7 +1412,6 @@ dataSet[dataSetVersion].characterData = [
     img: "sumika.jpg",
     opts: {
       school: ["Odyssey"],
-      notyetGlobal: true,
       jpNPC: true,
       globalNPC: true,
     }
